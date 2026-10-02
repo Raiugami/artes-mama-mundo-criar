@@ -1,5 +1,7 @@
 # Fotos ilustrativas
 
+> Nota: as fotos abaixo estão guardadas em `img/`, mas a versão atual do site usa ilustrações em SVG e não as exibe mais.
+
 Fotos selecionadas em 2 de outubro de 2026. As fotos representam papelaria e o ato de presentear; não são imagens de produtos entregues, instalações ou funcionários da Artes Mamãe Mundo Criar.
 
 Todas as três páginas de origem identificam as fotos como gratuitas sob a [licença Unsplash](https://unsplash.com/license), que permite uso comercial. Os arquivos foram baixados do CDN oficial em WebP, nas dimensões usadas pelo site.
