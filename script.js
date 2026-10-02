@@ -57,6 +57,7 @@ if (typeof lightbox.showModal === 'function') {
       lightbox.showModal();
       document.body.classList.add('modal-open');
       stopPointerMotion();
+      syncLogoShine();
     });
   });
   lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
@@ -68,6 +69,7 @@ if (typeof lightbox.showModal === 'function') {
   lightbox.addEventListener('close', () => {
     if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
     if (lastCatalogLink) lastCatalogLink.focus({ preventScroll: true });
+    syncLogoShine();
   });
 }
 
@@ -121,6 +123,9 @@ let keyboardMode = false;
 let pointerFrame = 0;
 let pointerPositioned = false;
 let mx = 0, my = 0, cx = 0, cy = 0;
+let shineTimer = 0;
+let shineDeadline = 0;
+let shineRemaining = 8000;
 
 function motionAllowed() {
   return !reducedMotion.matches && !motionPaused && !keyboardMode && !document.hidden && !document.body.classList.contains('modal-open');
@@ -132,6 +137,41 @@ function stopPointerMotion() {
   pointerPositioned = false;
   if (cursor) cursor.classList.remove('is-on', 'is-link');
 }
+
+// Uma passagem de luz, depois oito segundos de descanso. O tempo também pausa.
+function syncLogoShine() {
+  if (!brandScene) return;
+  if (reducedMotion.matches) {
+    clearTimeout(shineTimer);
+    shineTimer = 0;
+    shineRemaining = 8000;
+    brandScene.classList.remove('shine-active');
+    return;
+  }
+  const allowed = motionAllowed() && !brandScene.classList.contains('scene-idle');
+  if (!allowed) {
+    if (shineTimer) {
+      clearTimeout(shineTimer);
+      shineTimer = 0;
+      shineRemaining = Math.max(0, shineDeadline - Date.now());
+    }
+    return;
+  }
+  if (shineTimer || brandScene.classList.contains('shine-active')) return;
+  shineDeadline = Date.now() + shineRemaining;
+  shineTimer = setTimeout(() => {
+    shineTimer = 0;
+    shineRemaining = 0;
+    if (motionAllowed() && !brandScene.classList.contains('scene-idle')) brandScene.classList.add('shine-active');
+  }, shineRemaining);
+}
+
+if (brandScene) brandScene.addEventListener('animationend', event => {
+  if (event.animationName !== 'logo-text-shine') return;
+  brandScene.classList.remove('shine-active');
+  shineRemaining = 8000;
+  syncLogoShine();
+});
 
 function syncMotionPreference() {
   document.body.classList.toggle('motion-enabled', !reducedMotion.matches);
@@ -147,6 +187,7 @@ function syncMotionPreference() {
     header.classList.remove('is-hidden');
     showEverything();
   }
+  syncLogoShine();
 }
 
 motionToggles.forEach(toggle => toggle.addEventListener('click', () => {
@@ -185,6 +226,7 @@ document.addEventListener('keydown', event => {
   document.body.classList.add('keyboard-navigation');
   header.classList.remove('is-hidden');
   stopPointerMotion();
+  syncLogoShine();
 });
 
 // O cursor nativo permanece disponível. Nenhum quadro é executado em repouso.
@@ -201,6 +243,7 @@ if (cursor) {
     if (!finePointer.matches || reducedMotion.matches || motionPaused || document.hidden || document.body.classList.contains('modal-open')) return;
     keyboardMode = false;
     document.body.classList.remove('keyboard-navigation');
+    syncLogoShine();
     mx = event.clientX;
     my = event.clientY;
     if (!pointerPositioned) { cx = mx; cy = my; pointerPositioned = true; }
@@ -215,6 +258,7 @@ if (cursor) {
 if (brandScene && 'IntersectionObserver' in window) {
   const sceneObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => entry.target.classList.toggle('scene-idle', !entry.isIntersecting));
+    syncLogoShine();
   });
   sceneObserver.observe(brandScene);
 }
@@ -330,6 +374,7 @@ if (serviceDialog && typeof serviceDialog.showModal === 'function') {
       serviceDialog.showModal();
       document.body.classList.add('modal-open');
       stopPointerMotion();
+      syncLogoShine();
     });
   });
   serviceDialog.querySelector('.service-dialog-close').addEventListener('click', () => serviceDialog.close());
@@ -341,5 +386,6 @@ if (serviceDialog && typeof serviceDialog.showModal === 'function') {
   serviceDialog.addEventListener('close', () => {
     if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
     if (lastServiceButton) lastServiceButton.focus({ preventScroll: true });
+    syncLogoShine();
   });
 }

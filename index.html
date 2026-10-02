@@ -45,7 +45,7 @@
         <div class="hero-brand">
           <div class="brand-scene" role="img" aria-label="Artes Mamãe Mundo Criar — Papelaria e Presentes. Logo em aquarela com arco-íris, nuvens e corações.">
             <img class="logo-static" src="img/logo.png" width="640" height="640" alt="" fetchpriority="high">
-            <!-- Recortes vetoriais da própria logo: a aquarela e o lettering permanecem imóveis. -->
+            <!-- A logo original fornece as texturas de todas as camadas. -->
             <svg class="logo-animated" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
               <defs>
                 <clipPath id="hero-logo-circle"><ellipse cx="320" cy="320" rx="312" ry="318"/></clipPath>
@@ -60,6 +60,28 @@
                   <use href="#hero-cloud-left-shape" fill="black"/>
                   <use href="#hero-cloud-right-shape" fill="black"/>
                 </mask>
+                <mask id="hero-rainbow-paint" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="640">
+                  <g fill="none" stroke="white" stroke-linecap="round">
+                    <path class="rainbow-brush brush-pink" pathLength="1" stroke-width="24" d="M194 317C190 208 248 129 326 128C401 127 453 182 467 244"/>
+                    <path class="rainbow-brush brush-yellow" pathLength="1" stroke-width="34" d="M221 317C219 224 264 157 327 158C391 157 437 213 441 317"/>
+                    <path class="rainbow-brush brush-green" pathLength="1" stroke-width="30" d="M249 317C248 240 278 189 328 188C378 187 411 238 410 317"/>
+                    <path class="rainbow-brush brush-blue" pathLength="1" stroke-width="28" d="M274 317C272 254 291 217 327 218C362 217 386 252 386 317"/>
+                    <path class="rainbow-brush brush-blue" pathLength="1" stroke-width="26" d="M297 317C297 270 309 244 328 244C348 244 367 269 368 317"/>
+                  </g>
+                  <rect class="rainbow-paint-complete" width="640" height="640" fill="white"/>
+                </mask>
+                <path id="hero-heart-shape" d="M0-7C-7-19-21-17-17-4C-15 5-7 12 0 17C7 12 15 5 17-4C21-17 7-19 0-7Z"/>
+                <clipPath id="hero-heart-pink"><use href="#hero-heart-shape" transform="translate(256 557)"/></clipPath>
+                <clipPath id="hero-heart-yellow"><use href="#hero-heart-shape" transform="translate(300 557)"/></clipPath>
+                <clipPath id="hero-heart-blue"><use href="#hero-heart-shape" transform="translate(343 557)"/></clipPath>
+                <clipPath id="hero-heart-green"><use href="#hero-heart-shape" transform="translate(386 557)"/></clipPath>
+                <linearGradient id="hero-text-reflection"><stop stop-color="white" stop-opacity="0"/><stop offset=".5" stop-color="white" stop-opacity=".65"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+                <filter id="hero-lettering-alpha" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+                  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -.7 -.7 -.7 0 1.65"/>
+                </filter>
+                <mask id="hero-lettering-mask" maskUnits="userSpaceOnUse" x="88" y="337" width="489" height="145">
+                  <image href="img/logo.png" width="640" height="640" filter="url(#hero-lettering-alpha)"/>
+                </mask>
               </defs>
               <g clip-path="url(#hero-logo-circle)">
                 <image href="img/logo.png" width="640" height="640"/>
@@ -68,11 +90,16 @@
                   <use href="#hero-cloud-left-shape"/>
                   <use href="#hero-cloud-right-shape"/>
                 </g>
-                <g class="logo-rainbow">
-                  <g clip-path="url(#hero-rainbow-clip)" mask="url(#hero-rainbow-mask)"><image href="img/logo.png" width="640" height="640"/></g>
+                <g clip-path="url(#hero-rainbow-clip)" mask="url(#hero-rainbow-mask)">
+                  <g mask="url(#hero-rainbow-paint)"><image href="img/logo.png" width="640" height="640"/></g>
                 </g>
                 <g class="logo-cloud logo-cloud-left"><g clip-path="url(#hero-cloud-left-clip)"><image href="img/logo.png" width="640" height="640"/></g></g>
                 <g class="logo-cloud logo-cloud-right"><g clip-path="url(#hero-cloud-right-clip)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-pink"><g clip-path="url(#hero-heart-pink)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-yellow"><g clip-path="url(#hero-heart-yellow)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-blue"><g clip-path="url(#hero-heart-blue)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-green"><g clip-path="url(#hero-heart-green)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g mask="url(#hero-lettering-mask)"><g class="logo-shine"><path d="M-110 332H-28L16 482H-66Z" fill="url(#hero-text-reflection)"/></g></g>
               </g>
             </svg>
           </div>

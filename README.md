@@ -20,7 +20,7 @@ HTML, CSS e JavaScript puros, sem ferramentas de build ou dependências de execu
 
 ## Revisão visual
 
-Redesign inicial preparado em `feat/redesign-papelaria`, com aprimoramentos de interação em `feat/interacoes-portfolio` e hero da marca em `feat/hero-logo-animado`. A versão original está preservada na `main`.
+Redesign inicial preparado em `feat/redesign-papelaria`, com aprimoramentos de interação em `feat/interacoes-portfolio`, hero da marca em `feat/hero-logo-animado` e sequência de animações em `feat/efeitos-logo-em-camadas`. A versão original está preservada na `main`.
 
 Os bottons exibidos usam exemplos do catálogo original. A vitrine de presentes e a seção sobre usam fotos ilustrativas do Unsplash, com licença e créditos registrados em `FONTES-IMAGENS.md`. O cupcake é uma ilustração vetorial. As fotos de banco não representam pedidos entregues pela loja. Valores, telefone e Instagram foram preservados.
 
@@ -42,12 +42,15 @@ Referência consultada: https://www.unicoweb.com.br/ (2 de outubro de 2026).
 ## Hero com a logo animada
 
 - A própria logo foi separada em camadas por recortes SVG, sem recriar o lettering, alterar a imagem original ou carregar novas imagens.
-- O arco-íris balança suavemente; as duas nuvens deslizam em ritmos diferentes. A aquarela, o nome da marca e os corações permanecem estáveis.
+- As faixas rosa, amarela, verde e azul se desenham em sequência uma vez na entrada, durante cerca de 3,5 segundos. O arco interno amarelo claro acompanha a última faixa; a imagem completa reaparece ao concluir a pintura.
+- As nuvens balançam em direções opostas, até oito unidades da arte (cerca de quatro pixels no celular), em ciclos lentos de 13 segundos.
+- Os quatro corações pulsam da esquerda para a direita, com 220 ms entre cada um e uma onda a cada seis segundos. O aumento máximo é de 14%, com descanso entre as ondas.
+- Uma passagem de luz de 1,1 segundo atravessa somente as duas linhas do nome. Cada passagem termina antes de um novo intervalo de oito segundos; não há animação contínua de brilho. A aquarela e as posições das letras permanecem estáveis.
 - No celular, a logo aparece antes do texto do hero. No computador, fica ao lado da apresentação e dos botões de contato.
 - O botão de pausa do hero e o da faixa controlam todas as animações juntos. As camadas também param fora da tela, com a aba oculta, na navegação por teclado e durante a abertura de um painel.
-- Sem JavaScript ou com movimento reduzido, aparece a logo original estática. As animações usam apenas `transform`, sem bibliotecas, efeitos de desfoque ou loops de JavaScript.
+- Sem JavaScript ou com movimento reduzido, aparece a logo original estática. A pintura usa um traço SVG animado apenas na entrada; nuvens, corações e reflexo usam `transform` e `opacity`. A máscara do lettering usa um filtro estático de cor, sem desfoque. Não há bibliotecas nem loops de quadros de JavaScript; o brilho é disparado por um temporizador que também respeita as pausas.
 
-Verificações realizadas: sintaxe JavaScript, estrutura HTML, referências e IDs, preços originais, contraste dos principais textos e botões e dimensões das fotos WebP. Os recortes SVG da logo foram renderizados e inspecionados nas posições inicial e deslocada. A lógica do menu, da galeria, do carrossel, dos três painéis, da pausa sincronizada e da pausa da logo fora da tela passou em cinco cenários com DOM simulado (360, 412 e 1100 px; toque, ponteiro, movimento reduzido e fallbacks). Esses testes não validam a aparência da página nem substituem testes reais no navegador. A conferência visual em 360 e 412 px e o Lighthouse permanecem pendentes por bloqueio de acesso a arquivos locais na ferramenta de navegador da sessão.
+Verificações realizadas: sintaxe JavaScript, estrutura HTML, referências e IDs, preços originais, contraste dos principais textos e botões e dimensões das fotos WebP. Os recortes SVG, as fases da pintura, um coração ampliado e o reflexo sobre as letras foram renderizados e inspecionados. A lógica do menu, da galeria, do carrossel, dos três painéis, da pausa sincronizada, da pausa da logo fora da tela e do intervalo do brilho (incluindo o tempo restante ao retomar) passou em cinco cenários com DOM simulado (360, 412 e 1100 px; toque, ponteiro, movimento reduzido e fallbacks). Esses testes não validam a aparência da página nem substituem testes reais no navegador. A conferência visual em 360 e 412 px e o Lighthouse permanecem pendentes por bloqueio de acesso a arquivos locais na ferramenta de navegador da sessão.
 
 ## Fluxo do projeto
 
