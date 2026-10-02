@@ -112,18 +112,15 @@ window.addEventListener('beforeprint', showEverything);
 // Movimento opcional: muda imediatamente se a preferência do sistema mudar.
 const progressBar = document.querySelector('.scroll-progress');
 const header = document.querySelector('.site-header');
-const motionToggle = document.querySelector('.motion-toggle');
+const motionToggles = document.querySelectorAll('.motion-toggle');
 const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
-const showcase = document.querySelector('[data-parallax]');
-const layers = showcase ? showcase.querySelectorAll('[data-depth], .showcase-spark') : [];
+const brandScene = document.querySelector('.brand-scene');
 const cursor = document.querySelector('.cursor');
 let motionPaused = false;
 let keyboardMode = false;
 let pointerFrame = 0;
-let parallaxFrame = 0;
 let pointerPositioned = false;
 let mx = 0, my = 0, cx = 0, cy = 0;
-let parallaxX = 0, parallaxY = 0;
 
 function motionAllowed() {
   return !reducedMotion.matches && !motionPaused && !keyboardMode && !document.hidden && !document.body.classList.contains('modal-open');
@@ -131,25 +128,20 @@ function motionAllowed() {
 
 function stopPointerMotion() {
   cancelAnimationFrame(pointerFrame);
-  cancelAnimationFrame(parallaxFrame);
-  pointerFrame = parallaxFrame = 0;
+  pointerFrame = 0;
   pointerPositioned = false;
   if (cursor) cursor.classList.remove('is-on', 'is-link');
-  layers.forEach(layer => {
-    layer.style.setProperty('--px', '0px');
-    layer.style.setProperty('--py', '0px');
-  });
 }
 
 function syncMotionPreference() {
   document.body.classList.toggle('motion-enabled', !reducedMotion.matches);
   document.body.classList.toggle('motion-paused', motionPaused);
   document.body.classList.toggle('page-idle', document.hidden);
-  if (motionToggle) {
-    motionToggle.hidden = reducedMotion.matches;
-    motionToggle.textContent = motionPaused ? 'Retomar' : 'Pausar';
-    motionToggle.setAttribute('aria-label', motionPaused ? 'Retomar animações da página' : 'Pausar animações da página');
-  }
+  motionToggles.forEach(toggle => {
+    toggle.hidden = reducedMotion.matches;
+    toggle.textContent = motionPaused ? 'Retomar' : 'Pausar';
+    toggle.setAttribute('aria-label', motionPaused ? 'Retomar animações da página' : 'Pausar animações da página');
+  });
   if (!motionAllowed() || !finePointer.matches) stopPointerMotion();
   if (!motionAllowed()) {
     header.classList.remove('is-hidden');
@@ -157,10 +149,10 @@ function syncMotionPreference() {
   }
 }
 
-if (motionToggle) motionToggle.addEventListener('click', () => {
+motionToggles.forEach(toggle => toggle.addEventListener('click', () => {
   motionPaused = !motionPaused;
   syncMotionPreference();
-});
+}));
 reducedMotion.addEventListener('change', syncMotionPreference);
 finePointer.addEventListener('change', syncMotionPreference);
 document.addEventListener('visibilitychange', syncMotionPreference);
@@ -219,27 +211,12 @@ if (cursor) {
   document.addEventListener('mouseleave', stopPointerMotion);
 }
 
-if (showcase) {
-  showcase.addEventListener('mousemove', event => {
-    if (!motionAllowed() || !finePointer.matches) return;
-    parallaxX = event.clientX;
-    parallaxY = event.clientY;
-    if (parallaxFrame) return;
-    parallaxFrame = requestAnimationFrame(() => {
-      parallaxFrame = 0;
-      if (!motionAllowed() || !finePointer.matches) return;
-      const box = showcase.getBoundingClientRect();
-      if (!box.width || !box.height) return;
-      const dx = Math.max(-0.5, Math.min(0.5, (parallaxX - box.left) / box.width - 0.5));
-      const dy = Math.max(-0.5, Math.min(0.5, (parallaxY - box.top) / box.height - 0.5));
-      layers.forEach(layer => {
-        const depth = Number(layer.dataset.depth || 1);
-        layer.style.setProperty('--px', `${(dx * 12 * depth).toFixed(1)}px`);
-        layer.style.setProperty('--py', `${(dy * 12 * depth).toFixed(1)}px`);
-      });
-    });
-  }, { passive: true });
-  showcase.addEventListener('mouseleave', stopPointerMotion);
+// Congela as camadas da logo quando o hero sai da tela, sem executar um loop em JS.
+if (brandScene && 'IntersectionObserver' in window) {
+  const sceneObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.classList.toggle('scene-idle', !entry.isIntersecting));
+  });
+  sceneObserver.observe(brandScene);
 }
 
 // Carrossel nativo: setas, toque, teclado e links continuam disponíveis.

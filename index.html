@@ -42,21 +42,48 @@
   <main id="conteudo" tabindex="-1">
     <section id="inicio" class="hero">
       <div class="wrap hero-grid">
+        <div class="hero-brand">
+          <div class="brand-scene" role="img" aria-label="Artes Mamãe Mundo Criar — Papelaria e Presentes. Logo em aquarela com arco-íris, nuvens e corações.">
+            <img class="logo-static" src="img/logo.png" width="640" height="640" alt="" fetchpriority="high">
+            <!-- Recortes vetoriais da própria logo: a aquarela e o lettering permanecem imóveis. -->
+            <svg class="logo-animated" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <defs>
+                <clipPath id="hero-logo-circle"><ellipse cx="320" cy="320" rx="312" ry="318"/></clipPath>
+                <path id="hero-rainbow-shape" d="M178 322V280C178 185 239 115 326 115C406 115 463 176 480 241L456 254V322Z"/>
+                <path id="hero-cloud-left-shape" d="M98 330C91 320 93 304 99 293C108 276 125 277 139 284C137 257 147 232 173 230C196 229 204 248 202 278C214 262 233 265 240 282C246 297 239 316 237 330Z"/>
+                <path id="hero-cloud-right-shape" d="M424 332C420 321 418 302 426 288C433 275 445 274 453 288C454 262 465 244 481 245C499 246 507 269 506 293C518 280 537 287 543 305L542 332Z"/>
+                <clipPath id="hero-rainbow-clip"><use href="#hero-rainbow-shape"/></clipPath>
+                <clipPath id="hero-cloud-left-clip"><use href="#hero-cloud-left-shape"/></clipPath>
+                <clipPath id="hero-cloud-right-clip"><use href="#hero-cloud-right-shape"/></clipPath>
+                <mask id="hero-rainbow-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="640">
+                  <rect width="640" height="640" fill="white"/>
+                  <use href="#hero-cloud-left-shape" fill="black"/>
+                  <use href="#hero-cloud-right-shape" fill="black"/>
+                </mask>
+              </defs>
+              <g clip-path="url(#hero-logo-circle)">
+                <image href="img/logo.png" width="640" height="640"/>
+                <g fill="#fef6eb" stroke="#fef6eb" stroke-width="6" stroke-linejoin="round">
+                  <use href="#hero-rainbow-shape"/>
+                  <use href="#hero-cloud-left-shape"/>
+                  <use href="#hero-cloud-right-shape"/>
+                </g>
+                <g class="logo-rainbow">
+                  <g clip-path="url(#hero-rainbow-clip)" mask="url(#hero-rainbow-mask)"><image href="img/logo.png" width="640" height="640"/></g>
+                </g>
+                <g class="logo-cloud logo-cloud-left"><g clip-path="url(#hero-cloud-left-clip)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-cloud logo-cloud-right"><g clip-path="url(#hero-cloud-right-clip)"><image href="img/logo.png" width="640" height="640"/></g></g>
+              </g>
+            </svg>
+          </div>
+          <div class="hero-brand-footer"><span>Um mundo de ideias feito com carinho.</span><button class="motion-toggle hero-motion-toggle" type="button" aria-label="Pausar animações da página" hidden>Pausar</button></div>
+        </div>
         <div class="hero-copy">
           <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Papelaria · presentes · personalizados</p>
           <h1>Papelaria e presentes.<br><span>Com a sua cara.</span></h1>
           <p class="hero-description">Do material escolar à lembrancinha da festa: criatividade e carinho para aprender, celebrar e presentear do seu jeito.</p>
           <div class="hero-actions"><a class="button button-primary" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Artes%20Mam%C3%A3e%20Mundo%20Criar%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg> Pedir orçamento</a><a class="text-link" href="#produtos">Conhecer produtos <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
           <p class="hero-note"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg> Sua ideia, nossa criatividade.</p>
-        </div>
-        <div class="hero-showcase" data-parallax aria-label="Exemplos de bottons personalizados do catálogo">
-          <div class="showcase-top"><span>Feito do seu jeitinho</span><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg></div>
-          <span class="showcase-orbit" aria-hidden="true"></span>
-          <div class="pin pin-flower" data-depth="1.2"><svg viewBox="182 383 110 110" role="img" aria-label="Exemplo de botton com desenho de flor"><image href="img/bottons.webp" width="847" height="852"/></svg></div>
-          <div class="pin pin-girl" data-depth="-0.8"><svg viewBox="561 383 110 110" role="img" aria-label="Exemplo de botton com desenho de menina"><image href="img/bottons.webp" width="847" height="852"/></svg></div>
-          <div class="pin pin-car" data-depth="1.6"><svg viewBox="374 383 110 110" role="img" aria-label="Exemplo de botton com desenho de carro"><image href="img/bottons.webp" width="847" height="852"/></svg></div>
-          <span class="showcase-spark spark-one" aria-hidden="true">✳</span><span class="showcase-spark spark-two" aria-hidden="true">✧</span>
-          <div class="showcase-label"><span>Bottons personalizados</span><strong>A partir de R$ 5,00</strong></div><p class="showcase-caption">Exemplos do nosso catálogo</p>
         </div>
       </div>
     </section>
