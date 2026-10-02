@@ -1,303 +1,370 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Artes Mamãe Mundo Criar | Papelaria, Xerox, Bottons e Presentes</title>
-<meta name="description" content="Artes Mamãe Mundo Criar: papelaria, xerox, impressão, encadernação, plastificação, bottons personalizados, arquivos pedagógicos, presentes e doces de fabricação própria.">
-<meta property="og:title" content="Artes Mamãe Mundo Criar | Papelaria e Presentes">
-<meta property="og:description" content="Tudo que você precisa com amor e criatividade! Feito do jeitinho que você imagina.">
-<meta property="og:image" content="img/logo.png">
-<link rel="icon" href="img/logo.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
-<style>
-:root{
-  --rosa:#E0306F; --rosa-claro:#FFD6E4;
-  --teal:#17A6B5; --teal-claro:#CDEFF2;
-  --amarelo:#FBB92A; --amarelo-claro:#FFEFC2;
-  --verde:#3DB56D; --verde-claro:#D3F1DF;
-  --roxo:#8A5BC8; --roxo-claro:#E6DAF6;
-  --creme:#FFF7E8; --marrom:#4A1A2C;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Fredoka',sans-serif;color:var(--marrom);background:var(--creme);line-height:1.5;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit;text-decoration:none}
-.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
-
-/* aquarela de fundo */
-.aqua{background:
-  radial-gradient(circle at 8% 10%,var(--rosa-claro) 0,transparent 40%),
-  radial-gradient(circle at 95% 20%,var(--amarelo-claro) 0,transparent 38%),
-  radial-gradient(circle at 5% 90%,var(--teal-claro) 0,transparent 40%),
-  radial-gradient(circle at 92% 85%,var(--rosa-claro) 0,transparent 38%),
-  var(--creme)}
-
-header{position:sticky;top:0;z-index:50;background:rgba(255,247,232,.92);backdrop-filter:blur(8px);border-bottom:2px dashed var(--rosa-claro)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
-.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--rosa);font-size:1.05rem;line-height:1.1}
-.brand img{width:46px;height:46px;border-radius:50%}
-.brand span b{color:var(--teal);display:block}
-nav ul{display:flex;gap:22px;list-style:none;font-weight:500}
-nav a:hover{color:var(--rosa)}
-.menu-btn{display:none;background:none;border:0;font-size:1.8rem;color:var(--rosa);cursor:pointer}
-
-.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;font-weight:600;font-size:1.05rem;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
-.btn:hover{transform:translateY(-2px)}
-.btn-zap{background:#25D366;color:#fff;box-shadow:0 6px 16px rgba(37,211,102,.35)}
-.btn-rosa{background:var(--rosa);color:#fff;box-shadow:0 6px 16px rgba(224,48,111,.3)}
-.btn-borda{background:#fff;color:var(--rosa);border:2px solid var(--rosa)}
-
-.hero{padding:56px 0 70px}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.1;color:var(--rosa)}
-.hero h1 span{color:var(--teal)}
-.hero .script{font-family:'Pacifico',cursive;color:var(--roxo);font-size:1.4rem;margin:14px 0 8px}
-.hero p.lead{font-size:1.15rem;max-width:480px;margin-bottom:26px}
-.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
-.hero .logo-big{width:min(380px,100%);margin:0 auto;border-radius:50%;box-shadow:0 14px 40px rgba(224,48,111,.22)}
-.dots{display:flex;gap:6px;margin-top:22px}
-.dots i{width:14px;height:14px;border-radius:50%}
-
-section{padding:70px 0}
-.titulo{text-align:center;margin-bottom:40px}
-.titulo h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--rosa)}
-.titulo p{color:var(--teal);font-weight:500;font-size:1.1rem}
-.titulo .script{font-family:'Pacifico',cursive;color:var(--roxo);font-size:1.2rem;font-weight:400}
-
-/* serviços */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
-.card{background:#fff;border-radius:24px;padding:26px 20px;text-align:center;border:2px dashed var(--rosa-claro);box-shadow:0 6px 18px rgba(74,26,44,.06);transition:transform .2s}
-.card:hover{transform:translateY(-5px)}
-.ico{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:2rem;margin:0 auto 14px}
-.card h3{font-size:1.15rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.3px}
-.card p{font-size:.95rem;opacity:.85}
-.preco{display:inline-block;margin-top:10px;background:var(--amarelo-claro);color:var(--marrom);padding:4px 14px;border-radius:30px;font-weight:600;font-size:.9rem}
-
-/* preços */
-.precos{background:#fff}
-.tabelas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
-.tab{border-radius:26px;padding:28px 24px;border:2px dashed}
-.tab h3{font-size:1.4rem;margin-bottom:14px}
-.tab ul{list-style:none}
-.tab li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(74,26,44,.2)}
-.tab li:last-child{border:0}
-.tab li b{white-space:nowrap}
-.tab small{display:block;margin-top:10px;opacity:.7}
-.t1{background:var(--rosa-claro);border-color:var(--rosa)} .t1 h3{color:var(--rosa)}
-.t2{background:var(--teal-claro);border-color:var(--teal)} .t2 h3{color:var(--teal)}
-.t3{background:var(--roxo-claro);border-color:var(--roxo)} .t3 h3{color:var(--roxo)}
-
-/* galeria */
-.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start}
-.galeria figure{background:#fff;border-radius:24px;padding:12px;box-shadow:0 8px 24px rgba(74,26,44,.1);cursor:zoom-in;transition:transform .2s}
-.galeria figure:hover{transform:scale(1.02)}
-.galeria img{border-radius:16px;width:100%}
-.galeria figcaption{text-align:center;font-weight:500;padding:10px 0 2px;color:var(--rosa)}
-.lightbox{position:fixed;inset:0;background:rgba(74,26,44,.85);display:none;place-items:center;z-index:100;padding:20px;cursor:zoom-out}
-.lightbox.on{display:grid}
-.lightbox img{max-height:92vh;border-radius:16px}
-
-/* sobre */
-.sobre .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
-.sobre h2{color:var(--rosa);font-size:2.2rem;margin-bottom:14px}
-.sobre p{margin-bottom:12px;font-size:1.05rem}
-.valores{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.valor{padding:20px;border-radius:20px;text-align:center;font-weight:600}
-.valor span{display:block;font-size:1.8rem}
-
-/* doces */
-.doces{background:var(--rosa-claro)}
-.doces .box{background:#fff;border-radius:30px;padding:36px;text-align:center;border:2px dashed var(--rosa);max-width:720px;margin:0 auto}
-.doces h2{font-family:'Pacifico',cursive;font-weight:400;color:var(--rosa);font-size:2.2rem}
-
-/* contato */
-.contato{text-align:center}
-.contato .box{background:var(--rosa-claro);border-radius:34px;padding:44px 24px;max-width:760px;margin:0 auto}
-.contato h2{color:var(--rosa);font-size:2.2rem;margin-bottom:8px}
-.contato .links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:24px}
-
-footer{background:var(--marrom);color:#fff;text-align:center;padding:26px 20px;font-size:.95rem}
-footer span{color:var(--amarelo)}
-
-.zap-fixo{position:fixed;right:18px;bottom:18px;z-index:60;background:#25D366;color:#fff;border-radius:50px;padding:14px 22px;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
-.zap-fixo:hover{transform:translateY(-2px)}
-
-@media(max-width:800px){
-  .hero .wrap,.sobre .wrap{grid-template-columns:1fr}
-  .hero .logo-big{order:-1;width:240px}
-  .hero{text-align:center}.hero p.lead{margin-inline:auto}.hero .cta,.dots{justify-content:center}
-  .menu-btn{display:block}
-  nav{position:absolute;top:68px;left:0;right:0;background:var(--creme);display:none;border-bottom:2px dashed var(--rosa-claro)}
-  nav.on{display:block}
-  nav ul{flex-direction:column;gap:0;padding:10px 20px}
-  nav li a{display:block;padding:12px 0}
-  section{padding:50px 0}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffaf4">
+  <title>Artes Mamãe Mundo Criar | Papelaria e Personalizados</title>
+  <meta name="description" content="Papelaria, xerox, impressão, encadernação, bottons e presentes personalizados. Conheça a Artes Mamãe Mundo Criar e peça seu orçamento pelo WhatsApp.">
+  <meta property="og:title" content="Artes Mamãe Mundo Criar | Papelaria e Personalizados">
+  <meta property="og:description" content="Pequenos detalhes, grandes sorrisos. Papelaria e presentes feitos do seu jeito.">
+  <meta property="og:image" content="img/logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="img/favicon-192.png">
+  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Artes Mamãe Mundo Criar", "description": "Papelaria, xerox, impressão, encadernação, plastificação, bottons e presentes personalizados em Mauá – SP.", "telephone": "+55 11 97052-9778", "address": {"@type": "PostalAddress", "streetAddress": "R. Francisco Alves, 54 - Jardim Sonia Maria", "addressLocality": "Mauá", "addressRegion": "SP", "postalCode": "09380-360", "addressCountry": "BR"}, "geo": {"@type": "GeoCoordinates", "latitude": -23.6263387, "longitude": -46.4783938}, "hasMap": "https://www.google.com/maps/place/Artes+Mam%C3%A3e+Mundo+Criar/@-23.6263387,-46.4783938,995m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94ce69c417c507d3:0x100374c0f0150c3!8m2!3d-23.6263387!4d-46.4783938!16s%2Fg%2F11h5mfn913", "sameAs": ["https://www.instagram.com/artesmamaemundocriar/", "https://www.instagram.com/pedacinhodoaamor/"]}</script>
 </head>
 <body>
-
-<header>
-  <div class="wrap">
-    <a href="#inicio" class="brand"><img src="img/logo.png" alt="Logo Artes Mamãe Mundo Criar"><span>Artes Mamãe<b>Mundo Criar</b></span></a>
-    <button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('menu').classList.toggle('on')">☰</button>
-    <nav id="menu">
-      <ul>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#precos">Preços</a></li>
-        <li><a href="#galeria">Catálogo</a></li>
-        <li><a href="#sobre">Sobre</a></li>
-        <li><a href="#contato">Contato</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<main>
-<section id="inicio" class="hero aqua">
-  <div class="wrap">
-    <div>
-      <h1>Artes Mamãe <span>Mundo Criar</span></h1>
-      <p class="script">Tudo que você precisa com amor e criatividade!</p>
-      <p class="lead">Papelaria, xerox, impressão, bottons personalizados, presentes e muito mais. Feito do jeitinho que você imagina!</p>
-      <div class="cta">
-        <a class="btn btn-zap" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Artes%20Mam%C3%A3e%20Mundo%20Criar%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
-        <a class="btn btn-borda" href="#servicos">Ver serviços</a>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="m-flower" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ffd1e0"/><path d="M50 56V88" stroke="#3db56d" stroke-width="5" stroke-linecap="round"/><path d="M50 74C60 66 70 68 72 74 64 80 54 80 50 74Z" fill="#3db56d"/><g fill="#ec5b8f"><circle cx="50" cy="28" r="13"/><circle cx="68" cy="41" r="13"/><circle cx="61" cy="61" r="13"/><circle cx="39" cy="61" r="13"/><circle cx="32" cy="41" r="13"/></g><circle cx="50" cy="48" r="10" fill="#fbb92a"/></symbol>
+    <symbol id="m-heart" viewBox="0 0 100 100"><rect width="100" height="100" fill="#fff3d6"/><path d="M50 82C16 58 20 24 40 24 46 24 50 28 50 34 50 28 54 24 60 24 80 24 84 58 50 82Z" fill="#e0306f"/><path d="M34 36C30 38 28 44 30 48" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".6"/></symbol>
+    <symbol id="m-star" viewBox="0 0 100 100"><rect width="100" height="100" fill="#d9f1f2"/><path d="m50 14 10.5 24 26 2.5-19.6 17.4L72.5 83 50 69.6 27.5 83l5.6-25.1L13.5 40.5 39.5 38Z" fill="#fbb92a"/><circle cx="26" cy="22" r="3" fill="#fff"/><circle cx="78" cy="76" r="3" fill="#fff"/></symbol>
+    <symbol id="m-car" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ffe9d6"/><path d="M26 52 34 36H64L74 52Z" fill="#f06b9a"/><rect x="14" y="50" width="72" height="22" rx="9" fill="#e0306f"/><path d="M36 41H48V50H31ZM52 41H62L68 50H52Z" fill="#cdeff2"/><circle cx="32" cy="74" r="9" fill="#382d34"/><circle cx="68" cy="74" r="9" fill="#382d34"/><circle cx="32" cy="74" r="3.5" fill="#fff"/><circle cx="68" cy="74" r="3.5" fill="#fff"/><circle cx="83" cy="58" r="3" fill="#fbb92a"/></symbol>
+    <symbol id="m-girl" viewBox="0 0 100 100"><rect width="100" height="100" fill="#ffe3ea"/><path d="M20 84C20 54 28 22 50 22S80 54 80 84Z" fill="#8b5a3c"/><circle cx="50" cy="52" r="23" fill="#ffd9bd"/><path d="M28 46C34 32 66 32 72 46 62 40 38 40 28 46Z" fill="#8b5a3c"/><circle cx="41" cy="54" r="2.8" fill="#382d34"/><circle cx="59" cy="54" r="2.8" fill="#382d34"/><circle cx="36" cy="62" r="4.5" fill="#ffb3c8" opacity=".8"/><circle cx="64" cy="62" r="4.5" fill="#ffb3c8" opacity=".8"/><path d="M44 65Q50 70 56 65" stroke="#c0485f" stroke-width="2.4" fill="none" stroke-linecap="round"/><g fill="#e0306f"><path d="M50 26 38 18V34Z"/><path d="M50 26 62 18V34Z"/><circle cx="50" cy="26" r="4"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-12.2 7.7L3 21l1.8-4.8A8.5 8.5 0 1 1 20 11.5Z"/><path d="M8 9c0 4 3 7 7 7l1-2-2-1-1 1-3-3 1-1-1-2-2 1Z"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24"><path d="M7 8V3h10v5M7 17H4V9h16v8h-3M7 14h10v7H7Z"/><path d="M16 11h1M10 17h4"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h6l2 2 2-2h6v15h-6l-2 2-2-2H4ZM12 6v15"/><path d="M7 8h2m-2 4h2m6-4h2m-2 4h2"/></symbol>
+    <symbol id="i-gift" viewBox="0 0 24 24"><path d="M3 8h18v5H3ZM5 13v8h14v-8M12 8v13"/><path d="M12 8H8a3 3 0 1 1 3-3l1 3Zm0 0h4a3 3 0 1 0-3-3l-1 3Z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20 4 12a5 5 0 0 1 8-6 5 5 0 0 1 8 6Z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.8 6.3.8-4.6 4.5 1.1 6.3-5.5-3-5.5 3 1.1-6.3L3 9.6l6.3-.8Z"/></symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#inicio" aria-label="Artes Mamãe Mundo Criar — início"><img src="img/logo.png" width="640" height="640" alt=""><span>Artes Mamãe<strong>Mundo Criar<span class="brand-dot">.</span></strong></span></a>
+      <button class="menu-button" type="button" aria-label="Abrir menu" aria-controls="menu" aria-expanded="false" hidden><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+      <nav id="menu" class="site-nav" aria-label="Navegação principal"><a href="#produtos">Personalizados</a><a href="#servicos">Serviços</a><a href="#precos">Preços</a><a href="#sobre">Nossa história</a><a href="#avaliacoes">Avaliações</a><a class="nav-contact" href="#contato">Vamos conversar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></nav>
+    </div>
+  </header>
+  <main id="conteudo" tabindex="-1">
+    <section id="inicio" class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-brand">
+          <div class="brand-scene" role="img" aria-label="Artes Mamãe Mundo Criar — Papelaria e Presentes. Logo em aquarela com arco-íris, nuvens e corações.">
+            <span class="logo-ring" aria-hidden="true"></span><span class="orbit orbit-1" aria-hidden="true"></span><span class="orbit orbit-2" aria-hidden="true"></span><span class="orbit orbit-3" aria-hidden="true"></span>
+            <img class="logo-static" src="img/logo.png" width="640" height="640" alt="" fetchpriority="high">
+            <!-- A logo original fornece as texturas de todas as camadas. -->
+            <svg class="logo-animated" viewBox="0 0 640 640" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+              <defs>
+                <filter id="hero-ripple" x="-4%" y="-4%" width="108%" height="108%" color-interpolation-filters="sRGB">
+                  <feTurbulence id="ripple-noise" type="fractalNoise" baseFrequency="0.01 0.03" numOctaves="1" seed="4" result="noise"/>
+                  <feDisplacementMap id="ripple-map" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G"/>
+                </filter>
+                <clipPath id="hero-logo-circle"><ellipse cx="320" cy="320" rx="312" ry="318"/></clipPath>
+                <path id="hero-rainbow-shape" d="M178 322V280C178 185 239 115 326 115C406 115 463 176 480 241L456 254V322Z"/>
+                <path id="hero-cloud-left-shape" d="M98 330C91 320 93 304 99 293C108 276 125 277 139 284C137 257 147 232 173 230C196 229 204 248 202 278C214 262 233 265 240 282C246 297 239 316 237 330Z"/>
+                <path id="hero-cloud-right-shape" d="M424 332C420 321 418 302 426 288C433 275 445 274 453 288C454 262 465 244 481 245C499 246 507 269 506 293C518 280 537 287 543 305L542 332Z"/>
+                <clipPath id="hero-rainbow-clip"><use href="#hero-rainbow-shape"/></clipPath>
+                <clipPath id="hero-cloud-left-clip"><use href="#hero-cloud-left-shape"/></clipPath>
+                <clipPath id="hero-cloud-right-clip"><use href="#hero-cloud-right-shape"/></clipPath>
+                <mask id="hero-rainbow-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="640">
+                  <rect width="640" height="640" fill="white"/>
+                  <use href="#hero-cloud-left-shape" fill="black"/>
+                  <use href="#hero-cloud-right-shape" fill="black"/>
+                </mask>
+                <mask id="hero-rainbow-paint" maskUnits="userSpaceOnUse" x="0" y="0" width="640" height="640">
+                  <g fill="none" stroke="white" stroke-linecap="round">
+                    <path class="rainbow-brush brush-pink" pathLength="1" stroke-width="24" d="M194 317C190 208 248 129 326 128C401 127 453 182 467 244"/>
+                    <path class="rainbow-brush brush-yellow" pathLength="1" stroke-width="34" d="M221 317C219 224 264 157 327 158C391 157 437 213 441 317"/>
+                    <path class="rainbow-brush brush-green" pathLength="1" stroke-width="30" d="M249 317C248 240 278 189 328 188C378 187 411 238 410 317"/>
+                    <path class="rainbow-brush brush-blue" pathLength="1" stroke-width="28" d="M274 317C272 254 291 217 327 218C362 217 386 252 386 317"/>
+                    <path class="rainbow-brush brush-blue" pathLength="1" stroke-width="26" d="M297 317C297 270 309 244 328 244C348 244 367 269 368 317"/>
+                  </g>
+                  <rect class="rainbow-paint-complete" width="640" height="640" fill="white"/>
+                </mask>
+                <path id="hero-heart-shape" d="M0-7C-7-19-21-17-17-4C-15 5-7 12 0 17C7 12 15 5 17-4C21-17 7-19 0-7Z"/>
+                <clipPath id="hero-heart-pink"><use href="#hero-heart-shape" transform="translate(256 557)"/></clipPath>
+                <clipPath id="hero-heart-yellow"><use href="#hero-heart-shape" transform="translate(300 557)"/></clipPath>
+                <clipPath id="hero-heart-blue"><use href="#hero-heart-shape" transform="translate(343 557)"/></clipPath>
+                <clipPath id="hero-heart-green"><use href="#hero-heart-shape" transform="translate(386 557)"/></clipPath>
+                <linearGradient id="hero-text-reflection"><stop stop-color="white" stop-opacity="0"/><stop offset=".5" stop-color="white" stop-opacity=".65"/><stop offset="1" stop-color="white" stop-opacity="0"/></linearGradient>
+                <filter id="hero-lettering-alpha" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+                  <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  -.7 -.7 -.7 0 1.65"/>
+                </filter>
+                <mask id="hero-lettering-mask" maskUnits="userSpaceOnUse" x="88" y="337" width="489" height="145">
+                  <image href="img/logo.png" width="640" height="640" filter="url(#hero-lettering-alpha)"/>
+                </mask>
+              </defs>
+              <g clip-path="url(#hero-logo-circle)">
+                <image href="img/logo.png" width="640" height="640"/>
+                <g fill="#fef6eb" stroke="#fef6eb" stroke-width="6" stroke-linejoin="round">
+                  <use href="#hero-rainbow-shape"/>
+                  <use href="#hero-cloud-left-shape"/>
+                  <use href="#hero-cloud-right-shape"/>
+                </g>
+                <g class="rainbow-layer" clip-path="url(#hero-rainbow-clip)" mask="url(#hero-rainbow-mask)">
+                  <g mask="url(#hero-rainbow-paint)"><image href="img/logo.png" width="640" height="640"/></g>
+                </g>
+                <g class="rainbow-glow" clip-path="url(#hero-rainbow-clip)" mask="url(#hero-rainbow-mask)">
+                  <path class="band-glow" style="--bi:0" stroke-width="24" d="M194 317C190 208 248 129 326 128C401 127 453 182 467 244"/>
+                  <path class="band-glow" style="--bi:1" stroke-width="34" d="M221 317C219 224 264 157 327 158C391 157 437 213 441 317"/>
+                  <path class="band-glow" style="--bi:2" stroke-width="30" d="M249 317C248 240 278 189 328 188C378 187 411 238 410 317"/>
+                  <path class="band-glow" style="--bi:3" stroke-width="28" d="M274 317C272 254 291 217 327 218C362 217 386 252 386 317"/>
+                  <path class="band-glow" style="--bi:4" stroke-width="26" d="M297 317C297 270 309 244 328 244C348 244 367 269 368 317"/>
+                </g>
+                <g class="logo-cloud logo-cloud-left"><g clip-path="url(#hero-cloud-left-clip)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-cloud logo-cloud-right"><g clip-path="url(#hero-cloud-right-clip)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-pink"><g clip-path="url(#hero-heart-pink)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-yellow"><g clip-path="url(#hero-heart-yellow)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-blue"><g clip-path="url(#hero-heart-blue)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g class="logo-heart heart-green"><g clip-path="url(#hero-heart-green)"><image href="img/logo.png" width="640" height="640"/></g></g>
+                <g mask="url(#hero-lettering-mask)"><g class="logo-shine"><path d="M-110 332H-28L16 482H-66Z" fill="url(#hero-text-reflection)"/></g></g>
+              </g>
+            </svg>
+            <span class="logo-wash" aria-hidden="true"><i class="w1"></i><i class="w2"></i><i class="w3"></i></span>
+            <span class="logo-burst" aria-hidden="true"></span>
+          </div>
+          <div class="hero-brand-footer"><span>Um mundo de ideias feito com carinho.</span></div>
+        </div>
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-dot" aria-hidden="true"></span> Papelaria · presentes · personalizados</p>
+          <h1>Papelaria e presentes.<br><span>Com a sua cara.</span></h1>
+          <p class="hero-description">Do material escolar à lembrancinha da festa: criatividade e carinho para aprender, celebrar e presentear do seu jeito.</p>
+          <div class="hero-actions"><a class="button button-primary" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Artes%20Mam%C3%A3e%20Mundo%20Criar%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Pedir orçamento</a><a class="text-link" href="#produtos">Conhecer produtos <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+          <p class="hero-note"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg> Sua ideia, nossa criatividade.</p>
+        </div>
       </div>
-      <div class="dots"><i style="background:var(--rosa)"></i><i style="background:var(--amarelo)"></i><i style="background:#8FD3F4"></i><i style="background:var(--verde)"></i><i style="background:var(--roxo)"></i></div>
+    </section>
+    <div class="intro-strip"><div class="wrap strip-inner"><span><svg class="icon" aria-hidden="true"><use href="#i-print"/></svg> Praticidade para o dia a dia</span><span><svg class="icon" aria-hidden="true"><use href="#i-gift"/></svg> Criatividade para presentear</span><span><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg> Carinho em cada detalhe</span></div></div>
+    <div class="marquee" role="region" aria-label="Serviços e produtos: Xerox, Impressão, Encadernação, Plastificação, Papelaria, Bottons, Presentes, Arquivos pedagógicos, Personalizados, Doces">
+      <div class="marquee-window"><div class="marquee-track" aria-hidden="true"><div class="marquee-group"><span>Xerox</span><span>Impressão</span><span>Encadernação</span><span>Plastificação</span><span>Papelaria</span><span>Bottons</span><span>Presentes</span><span>Arquivos pedagógicos</span><span>Personalizados</span><span>Doces</span></div><div class="marquee-group"><span>Xerox</span><span>Impressão</span><span>Encadernação</span><span>Plastificação</span><span>Papelaria</span><span>Bottons</span><span>Presentes</span><span>Arquivos pedagógicos</span><span>Personalizados</span><span>Doces</span></div></div></div>
+      
     </div>
-    <img class="logo-big" src="img/logo.png" alt="Artes Mamãe Mundo Criar - Papelaria e Presentes">
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="wrap">
-    <div class="titulo">
-      <span class="script">Criar, ensinar e amar faz parte do nosso mundo!</span>
-      <h2>Nossos serviços e produtos</h2>
-      <p>Tudo para o seu dia a dia, escola, festa e presentes</p>
-    </div>
-    <div class="grid">
-      <div class="card"><div class="ico" style="background:var(--rosa-claro)">🖨️</div><h3>Xerox</h3><p>Cópias rápidas e com qualidade.</p><span class="preco">P&amp;B a partir de R$ 1,00</span></div>
-      <div class="card"><div class="ico" style="background:var(--amarelo-claro)">📄</div><h3>Impressão</h3><p>Preto e branco ou coloridas.</p><span class="preco">Coloridas a partir de R$ 2,00</span></div>
-      <div class="card"><div class="ico" style="background:var(--roxo-claro)">📓</div><h3>Encadernação</h3><p>Com capricho para trabalhos e cadernos.</p><span class="preco">a partir de R$ 7,00</span></div>
-      <div class="card"><div class="ico" style="background:var(--teal-claro)">🛡️</div><h3>Plastificação</h3><p>Mais proteção para seus documentos.</p><span class="preco">a partir de R$ 6,00</span></div>
-      <div class="card"><div class="ico" style="background:var(--rosa-claro)">✏️</div><h3>Papelaria</h3><p>Material escolar e de escritório.</p></div>
-      <div class="card"><div class="ico" style="background:var(--verde-claro)">📚</div><h3>Arquivos pedagógicos</h3><p>Atividades infantis e diversos temas para Educação Infantil e Ensino Fundamental.</p></div>
-      <div class="card"><div class="ico" style="background:var(--roxo-claro)">📿</div><h3>Plenas Biju</h3><p>Bijuterias selecionadas, seu estilo, sua luz!</p></div>
-      <div class="card"><div class="ico" style="background:var(--amarelo-claro)">🧸</div><h3>Brinquedos</h3><p>Para alegrar a criançada.</p></div>
-      <div class="card"><div class="ico" style="background:var(--teal-claro)">🎁</div><h3>Presentes personalizados</h3><p>Canecas, caixinhas e afeto em cada detalhe.</p></div>
-      <div class="card"><div class="ico" style="background:var(--rosa-claro)">🎉</div><h3>Personalizados para festas</h3><p>Tags, adesivos, caixinhas e lembrancinhas.</p></div>
-      <div class="card"><div class="ico" style="background:var(--verde-claro)">👜</div><h3>Sacola ecobag</h3><p>Prática, resistente, sustentável e ecológica.</p><span class="preco">R$ 39,00</span></div>
-      <div class="card"><div class="ico" style="background:var(--rosa-claro)">🧁</div><h3>Doces de fabricação própria</h3><p>Pedacinho do Amor, há mais de 18 anos no mercado.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="precos" class="precos">
-  <div class="wrap">
-    <div class="titulo"><h2>Preços</h2><p>Valores de referência. Consulte condições para quantidades maiores.</p></div>
-    <div class="tabelas">
-      <div class="tab t1">
-        <h3>📌 Bottons personalizados</h3>
-        <ul>
-          <li><span>P · 3,2 cm</span><b>R$ 5,00</b></li>
-          <li><span>M · 4,4 cm</span><b>R$ 7,00</b></li>
-          <li><span>G · 5,8 cm</span><b>R$ 9,00</b></li>
-        </ul>
-        <small>Do jeitinho que você imagina!</small>
+    <section id="produtos" class="section products-section">
+      <div class="wrap">
+        <div class="section-heading heading-split" data-reveal><div><p class="eyebrow">Com a sua personalidade</p><h2>Ideias que viram<br><span class="pink-text">presentes especiais.</span></h2></div><p>Um desenho favorito, uma mensagem ou o tema da festa. Você conta a ideia e a gente conversa sobre as possibilidades.</p></div>
+        <div class="product-grid deck-stage" id="products-track" role="region" aria-label="Produtos em destaque">
+          <article class="product-card deck-card" data-reveal>
+            <div class="product-art art-bottons"><span class="product-tag">Do seu jeito</span><svg class="art-svg" viewBox="0 0 400 260" role="img" aria-label="Ilustração animada de três bottons coloridos flutuando"><g class="pinwrap f1"><circle cx="135" cy="138" r="50" fill="#cfd3d8"/><circle cx="120" cy="150" r="50" fill="#ffd1e0" stroke="#fff" stroke-width="6"/><g transform="translate(120 150)"><path d="M0 8V44" stroke="#3db56d" stroke-width="5" stroke-linecap="round"/><g fill="#ec5b8f"><circle cx="0" cy="-20" r="13"/><circle cx="19" cy="-6" r="13"/><circle cx="12" cy="16" r="13"/><circle cx="-12" cy="16" r="13"/><circle cx="-19" cy="-6" r="13"/></g><circle r="10" fill="#fbb92a"/></g></g><g class="pinwrap f2"><circle cx="228" cy="116" r="60" fill="#cfd3d8" transform="translate(16 -8)"/><circle cx="214" cy="124" r="60" fill="#fff3d6" stroke="#fff" stroke-width="6"/><path d="M214 160C170 130 176 92 198 92 208 92 214 100 214 106 214 100 220 92 230 92 252 92 258 130 214 160Z" fill="#e0306f"/></g><g class="pinwrap f3"><circle cx="318" cy="168" r="44" fill="#cfd3d8" transform="translate(12 -8)"/><circle cx="306" cy="176" r="44" fill="#d9f1f2" stroke="#fff" stroke-width="6"/><path transform="translate(306 176) scale(2.1)" fill="#fbb92a" d="m0-14 4 9 10 1-7 7 2 10-9-5-9 5 2-10-7-7 10-1Z"/></g><g fill="#e0306f"><g class="spk s1" transform="translate(60 60)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(340 56)" fill="#17a6b5"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s3" transform="translate(200 224)" fill="#fbb92a"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="product-body"><h3>Bottons personalizados</h3><p>Pequenos no tamanho, cheios de personalidade. Escolha entre P, M e G.</p><div class="product-bottom"><span>A partir de <strong>R$ 5,00</strong></span><a class="round-link" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20personalizar%20bottons.%20Podemos%20conversar%20sobre%20tema%20e%20quantidade%3F" target="_blank" rel="noopener" aria-label="Pedir orçamento de bottons"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+          </article>
+          <article class="product-card deck-card" data-reveal>
+            <div class="product-art art-gifts"><span class="product-tag">Para surpreender</span><svg class="art-svg" viewBox="0 0 400 260" role="img" aria-label="Ilustração animada de uma caixa de presente abrindo e soltando corações"><ellipse cx="200" cy="232" rx="82" ry="9" fill="#146e69" opacity=".14"/><g transform="translate(200 120)"><path class="ht h1" d="M0-5C-5-14-16-12-13-3-11 3-5 8 0 12 5 8 11 3 13-3 16-12 5-14 0-5Z" fill="#e0306f"/><path class="ht h2" d="M0-5C-5-14-16-12-13-3-11 3-5 8 0 12 5 8 11 3 13-3 16-12 5-14 0-5Z" fill="#e0306f"/><path class="ht h3" d="M0-5C-5-14-16-12-13-3-11 3-5 8 0 12 5 8 11 3 13-3 16-12 5-14 0-5Z" fill="#e0306f"/></g><rect x="145" y="140" width="110" height="88" rx="6" fill="#f4a6bd"/><rect x="190" y="140" width="20" height="88" fill="#fff"/><g class="lid"><rect x="136" y="112" width="128" height="34" rx="6" fill="#ee86a5"/><rect x="190" y="112" width="20" height="34" fill="#fff"/><g class="bow"><ellipse cx="178" cy="102" rx="22" ry="13" transform="rotate(-24 178 102)" fill="#fff"/><ellipse cx="222" cy="102" rx="22" ry="13" transform="rotate(24 222 102)" fill="#fff"/><circle cx="200" cy="108" r="8" fill="#fbb92a"/></g></g><g fill="#fbb92a"><g class="spk s1" transform="translate(98 90)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(308 80)" fill="#e0306f"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s3" transform="translate(330 190)" fill="#17a6b5"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="product-body"><h3>Presentes com significado</h3><p>Canecas, caixinhas e detalhes para levar um pouco de afeto a quem você ama.</p><div class="product-bottom"><span>Personalização <strong>sob consulta</strong></span><a class="round-link" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20um%20presente%20personalizado." target="_blank" rel="noopener" aria-label="Pedir orçamento de presentes personalizados"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+          </article>
+          <article class="product-card deck-card" data-reveal>
+            <div class="product-art art-party"><span class="product-tag">Para celebrar</span><svg class="art-svg" viewBox="0 0 400 260" role="img" aria-label="Ilustração animada de balões e confetes de festa"><g class="flags" fill="#e0306f"><path d="M0 30Q100 70 200 30T400 30" fill="none" stroke="#b58a5a" stroke-width="2"/><path d="M30 44 50 44 40 68Z"/><path class="fl" d="M90 56 110 56 100 80Z" fill="#17a6b5"/><path d="M150 62 170 62 160 86Z" fill="#fbb92a"/><path class="fl" d="M230 62 250 62 240 86Z"/><path d="M290 56 310 56 300 80Z" fill="#17a6b5"/><path class="fl" d="M350 44 370 44 360 68Z" fill="#fbb92a"/></g><g class="bal b1"><path d="M110 200Q100 230 112 258" stroke="#8a6c55" fill="none"/><ellipse cx="110" cy="160" rx="30" ry="38" fill="#e0306f"/><ellipse cx="100" cy="146" rx="6" ry="10" fill="#fff" opacity=".4"/></g><g class="bal b2"><path d="M200 210Q210 236 198 258" stroke="#8a6c55" fill="none"/><ellipse cx="200" cy="170" rx="34" ry="42" fill="#17a6b5"/><ellipse cx="189" cy="154" rx="7" ry="11" fill="#fff" opacity=".4"/></g><g class="bal b3"><path d="M292 196Q302 228 290 258" stroke="#8a6c55" fill="none"/><ellipse cx="292" cy="156" rx="30" ry="38" fill="#fbb92a"/><ellipse cx="282" cy="142" rx="6" ry="10" fill="#fff" opacity=".4"/></g><rect class="cf cf1" x="70" y="-10" width="8" height="12" rx="2" fill="#e0306f"/><rect class="cf cf2" x="130" y="-10" width="8" height="12" rx="2" fill="#17a6b5"/><rect class="cf cf3" x="190" y="-10" width="8" height="12" rx="2" fill="#fbb92a"/><rect class="cf cf4" x="250" y="-10" width="8" height="12" rx="2" fill="#8a5bc8"/><rect class="cf cf5" x="310" y="-10" width="8" height="12" rx="2" fill="#3db56d"/><rect class="cf cf6" x="350" y="-10" width="8" height="12" rx="2" fill="#e0306f"/></svg></div>
+            <div class="product-body"><h3>Uma festa com a sua cara</h3><p>Tags, adesivos, caixinhas e lembrancinhas que combinam com a sua comemoração.</p><div class="product-bottom"><span>Conte pra gente <strong>o seu tema</strong></span><a class="round-link" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20um%20or%C3%A7amento%20para%20personalizados%20de%20festa." target="_blank" rel="noopener" aria-label="Pedir orçamento de personalizados para festas"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+          </article>
+          <article class="product-card deck-card" data-reveal>
+            <div class="product-art art-eco"><span class="product-tag">Sustentável</span><svg class="art-svg" viewBox="0 0 400 260" role="img" aria-label="Ilustração animada de uma sacola ecobag balançando com uma folha"><g class="bag"><path d="M165 118C165 70 235 70 235 118" fill="none" stroke="#c9ad82" stroke-width="7" stroke-linecap="round"/><path d="M144 114H256L266 232H134Z" fill="#f6e9d1" stroke="#d9c3a0" stroke-width="3" stroke-linejoin="round"/><path transform="translate(200 172) scale(1.5)" d="M0-8C-8-22-26-18-21-4-18 5-8 12 0 20 8 12 18 5 21-4 26-18 8-22 0-8Z" fill="#e0306f"/><path d="M178 214Q200 200 222 214" fill="none" stroke="#3db56d" stroke-width="3" stroke-linecap="round"/></g><g class="leaf l1"><path d="M0 0C14-14 30-4 24 14 8 18-4 12 0 0Z" fill="#3db56d"/></g><g class="leaf l2"><path d="M0 0C14-14 30-4 24 14 8 18-4 12 0 0Z" fill="#6fcf97"/></g><g fill="#fbb92a"><g class="spk s1" transform="translate(92 100)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(312 92)" fill="#3db56d"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="product-body"><h3>Sacola ecobag</h3><p>Prática, resistente e ecológica. Uma forma bonita de levar suas coisas e cuidar do planeta.</p><div class="product-bottom"><span>Por apenas <strong>R$ 39,00</strong></span><a class="round-link" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20mais%20sobre%20a%20sacola%20ecobag." target="_blank" rel="noopener" aria-label="Consultar sacola ecobag"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+          </article>
+          <article class="product-card deck-card" data-reveal>
+            <div class="product-art art-edu"><span class="product-tag">Para aprender</span><svg class="art-svg" viewBox="0 0 400 260" role="img" aria-label="Ilustração animada de um lápis escrevendo letras em uma folha"><rect x="120" y="34" width="160" height="196" rx="10" fill="#fff" stroke="#d6c6ee" stroke-width="3"/><text x="200" y="92" text-anchor="middle" font-family="Fredoka, sans-serif" font-size="38" font-weight="600"><tspan fill="#e0306f">A</tspan><tspan fill="#17a6b5">B</tspan><tspan fill="#fbb92a">C</tspan></text><g fill="none" stroke-width="5" stroke-linecap="round"><path class="wr w1" pathLength="1" d="M146 132H254" stroke="#8a5bc8"/><path class="wr w2" pathLength="1" d="M146 160H236" stroke="#17a6b5"/><path class="wr w3" pathLength="1" d="M146 188H246" stroke="#e0306f"/></g><g class="pencil"><path d="M0 0 8-8 40-40 52-28 20 4Z" fill="#fbb92a"/><path d="M0 0 8-8 12-4Z" fill="#f6d9b0"/><path d="M0 0 3-3 5-1Z" fill="#382d34"/><path d="M40-40 46-46 58-34 52-28Z" fill="#e0306f"/></g><g fill="#8a5bc8"><g class="spk s1" transform="translate(84 70)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(326 150)" fill="#fbb92a"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="product-body"><h3>Arquivos pedagógicos</h3><p>Atividades infantis e temas diversos para a Educação Infantil e o Ensino Fundamental.</p><div class="product-bottom"><span>Consulte os <strong>temas disponíveis</strong></span><a class="round-link" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20os%20arquivos%20pedag%C3%B3gicos%20e%20atividades%20infantis." target="_blank" rel="noopener" aria-label="Consultar arquivos pedagógicos"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div></div>
+          </article>
+        </div>
+        <div class="deck-controls" hidden><button class="deck-prev carousel-arrow" type="button" aria-label="Carta anterior" aria-controls="products-track"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button><span class="deck-status" aria-live="polite" aria-atomic="true"></span><button class="deck-next carousel-arrow" type="button" aria-label="Próxima carta" aria-controls="products-track"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        <p class="product-footnote">Ilustrações animadas e exemplos do catálogo. Consulte temas, materiais e disponibilidade.</p>
       </div>
-      <div class="tab t2">
-        <h3>🎀 Kits com 03 bottons</h3>
-        <ul>
-          <li><span>3 bottons P</span><b>R$ 12,00</b></li>
-          <li><span>3 bottons M</span><b>R$ 16,00</b></li>
-          <li><span>3 bottons G</span><b>R$ 20,00</b></li>
-        </ul>
+    </section>
+    <div class="divider divider-rise" style="--from:var(--tone-cream);--to:var(--tone-teal)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 100V72A51.8 26 0 0 1 103.5 72A70.6 38 0 0 1 244.7 72A42.4 22 0 0 1 329.4 72A80.0 42 0 0 1 489.4 72A56.5 30 0 0 1 602.4 72A47.1 26 0 0 1 696.5 72A75.3 38 0 0 1 847.1 72A61.2 22 0 0 1 969.4 72A44.7 42 0 0 1 1058.8 72A70.6 30 0 0 1 1200.0 72A54.1 26 0 0 1 1308.2 72A65.9 38 0 0 1 1440.0 72V100Z"/></svg><span class="deco" style="left:8%;width:84px;--speed:0.1"><svg viewBox="0 0 80 48" aria-hidden="true"><path d="M16 44C6 44 2 34 8 28c-2-10 8-16 16-12C28 6 46 6 50 18c10-4 22 4 18 14 8 2 8 12 0 12Z" fill="#fff"/></svg></span><span class="deco" style="left:80%;width:30px;--speed:0.16"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35C6 24 4 14 11 9c4-3 8-1 9 3 1-4 5-6 9-3 7 5 5 15-9 26Z" fill="#e0306f"/></svg></span></div>
+    <section id="servicos" class="section services-section">
+      <div class="wrap">
+        <div class="section-heading" data-reveal><p class="eyebrow">Também cuidamos do seu dia a dia</p><h2>O que você precisa,<br><span class="teal-text">em um só lugar.</span></h2><p>Da impressão do trabalho da escola ao presente para uma ocasião especial.</p></div>
+        <div class="shop-sign" data-reveal>
+          <p class="shop-sign-tag">Mais procurados</p>
+          <ul>
+            <li><span>Xerox P&amp;B</span><strong>a partir de R$ 1,00</strong></li>
+            <li><span>Bottons</span><strong>a partir de R$ 5,00</strong></li>
+            <li><span>Plastificação</span><strong>a partir de R$ 6,00</strong></li>
+            <li><span>Sacola ecobag</span><strong>R$ 39,00</strong></li>
+          </ul>
+        </div>
+        <div class="svc-grid">
+          <article class="svc-card svc-teal" data-reveal>
+            <div class="svc-art"><svg class="svc-art-svg" viewBox="0 0 300 170" role="img" aria-label="Ilustração animada de uma impressora imprimindo uma folha">
+<ellipse cx="150" cy="150" rx="86" ry="8" fill="#146e69" opacity=".12"/>
+<g class="pr-paper-in"><rect x="104" y="26" width="92" height="52" rx="4" fill="#fff" stroke="#bcd9db" stroke-width="2"/></g>
+<rect x="70" y="66" width="160" height="62" rx="14" fill="#17a6b5"/>
+<rect x="70" y="106" width="160" height="22" rx="10" fill="#146e69"/>
+<rect x="104" y="98" width="92" height="7" rx="3.5" fill="#0e4f4b"/>
+<circle class="pr-led" cx="208" cy="82" r="5" fill="#fbb92a"/>
+<rect x="84" y="76" width="34" height="8" rx="4" fill="#fff" opacity=".55"/>
+<g class="pr-out"><rect x="108" y="100" width="84" height="64" rx="4" fill="#fff" stroke="#bcd9db" stroke-width="2"/><g fill="none" stroke-width="4" stroke-linecap="round"><path d="M118 114H180" stroke="#e0306f"/><path d="M118 126H168" stroke="#fbb92a"/><path d="M118 138H176" stroke="#17a6b5"/></g></g>
+<g fill="#fbb92a"><g class="spk s1" transform="translate(246 52)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(48 60)" fill="#e0306f"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="svc-body">
+              <h3>Impressão e acabamento</h3><p class="svc-lead">Imprimiu, plastificou, pronto.</p>
+              <ul class="svc-list"><li><span>Xerox P&amp;B</span><b class="svc-price">a partir de R$ 1,00</b></li><li><span>Impressão P&amp;B</span><b class="svc-price">a partir de R$ 1,00</b></li><li><span>Impressão colorida</span><b class="svc-price">a partir de R$ 2,00</b></li><li><span>Encadernação</span><b class="svc-price">a partir de R$ 7,00</b></li><li><span>Plastificação</span><b class="svc-price">a partir de R$ 6,00</b></li></ul>
+              <div class="svc-how"><p class="svc-how-title">Como pedir</p><ol><li><span class="svc-dot" aria-hidden="true">1</span>Envie o arquivo ou o documento</li><li><span class="svc-dot" aria-hidden="true">2</span>Escolha cor, quantidade e acabamento</li><li><span class="svc-dot" aria-hidden="true">3</span>Combine valor e prazo</li></ol></div>
+              <a class="svc-cta" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20os%20servi%C3%A7os%20de%20impress%C3%A3o%20e%20acabamento." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar no WhatsApp</a>
+            </div>
+          </article>
+          <article class="svc-card svc-pink" data-reveal>
+            <div class="svc-art"><svg class="svc-art-svg" viewBox="0 0 300 170" role="img" aria-label="Ilustração animada de um livro abrindo e soltando letrinhas">
+<ellipse cx="150" cy="150" rx="96" ry="8" fill="#be285d" opacity=".12"/>
+<path d="M150 62C122 48 88 50 66 60V134C88 124 122 122 150 136Z" fill="#fff" stroke="#e8b7c7" stroke-width="3" stroke-linejoin="round"/>
+<path d="M150 62C178 48 212 50 234 60V134C212 124 178 122 150 136Z" fill="#fff" stroke="#e8b7c7" stroke-width="3" stroke-linejoin="round"/>
+<g fill="none" stroke-width="4" stroke-linecap="round" opacity=".85"><path d="M86 82C102 78 118 80 132 86" stroke="#e0306f"/><path d="M86 98C102 94 118 96 132 102" stroke="#17a6b5"/><path d="M168 86C182 80 198 78 214 82" stroke="#fbb92a"/><path d="M168 102C182 96 198 94 214 98" stroke="#8a5bc8"/></g>
+<g class="bk-flip"><path d="M150 62C178 48 212 50 234 60V134C212 124 178 122 150 136Z" fill="#fde4ec" stroke="#e8b7c7" stroke-width="3" stroke-linejoin="round"/></g>
+<g font-family="Fredoka, sans-serif" font-weight="600" font-size="26"><text class="bk-l l1" x="112" y="64" fill="#e0306f">A</text><text class="bk-l l2" x="146" y="60" fill="#17a6b5">B</text><text class="bk-l l3" x="180" y="64" fill="#fbb92a">C</text></g>
+<g fill="#be285d"><g class="spk s1" transform="translate(52 52)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(252 112)" fill="#fbb92a"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="svc-body">
+              <h3>Papelaria e educação</h3><p class="svc-lead">Do caderno novo à atividade da aula.</p>
+              <ul class="svc-list"><li><span>Material escolar</span></li><li><span>Material de escritório</span></li><li><span>Arquivos pedagógicos</span></li><li><span>Atividades infantis</span></li><li><span>Educação Infantil e Ensino Fundamental</span></li></ul>
+              <div class="svc-how"><p class="svc-how-title">Como pedir</p><ol><li><span class="svc-dot" aria-hidden="true">1</span>Mande a lista ou o tema que procura</li><li><span class="svc-dot" aria-hidden="true">2</span>Conte a etapa escolar</li><li><span class="svc-dot" aria-hidden="true">3</span>Confira opções e valores</li></ol></div>
+              <a class="svc-cta" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20conhecer%20os%20produtos%20de%20papelaria%20e%20os%20arquivos%20pedag%C3%B3gicos." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar no WhatsApp</a>
+            </div>
+          </article>
+          <article class="svc-card svc-gold" data-reveal>
+            <div class="svc-art"><svg class="svc-art-svg" viewBox="0 0 300 170" role="img" aria-label="Ilustração animada de um presente com laço balançando">
+<ellipse cx="150" cy="152" rx="70" ry="8" fill="#805e21" opacity=".14"/>
+<g class="gf-box"><rect x="102" y="84" width="96" height="64" rx="6" fill="#e0306f"/><rect x="140" y="84" width="20" height="64" fill="#fff"/><rect x="94" y="66" width="112" height="24" rx="6" fill="#ee5e90"/><rect x="140" y="66" width="20" height="24" fill="#fff"/><g class="gf-bow"><ellipse cx="128" cy="58" rx="22" ry="12" transform="rotate(-22 128 58)" fill="#fff"/><ellipse cx="172" cy="58" rx="22" ry="12" transform="rotate(22 172 58)" fill="#fff"/><circle cx="150" cy="64" r="8" fill="#fbb92a"/></g></g>
+<g fill="#e0306f"><g class="spk s1" transform="translate(62 70)" fill="#fbb92a"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s2" transform="translate(240 56)"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="spk s3" transform="translate(232 128)" fill="#17a6b5"><path class="sp" d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g></svg></div>
+            <div class="svc-body">
+              <h3>Presentes e acessórios</h3><p class="svc-lead">Achadinhos para presentear e dar um toque ao seu dia.</p>
+              <ul class="svc-list"><li><span>Bottons e presentes personalizados</span></li><li><span>Lembrancinhas para festas</span></li><li><span>Sacola ecobag</span><b class="svc-price">R$ 39,00</b></li><li><span>Bijuterias Plenas Biju</span></li><li><span>Brinquedos</span></li></ul>
+              <div class="svc-how"><p class="svc-how-title">Como pedir</p><ol><li><span class="svc-dot" aria-hidden="true">1</span>Escolha o produto</li><li><span class="svc-dot" aria-hidden="true">2</span>Conte tema, quantidade e data</li><li><span class="svc-dot" aria-hidden="true">3</span>Combine detalhes e orçamento</li></ol></div>
+              <a class="svc-cta" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Gostaria%20de%20consultar%20os%20presentes%20e%20acess%C3%B3rios%20dispon%C3%ADveis." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Consultar no WhatsApp</a>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="tab t3">
-        <h3>🖨️ Impressão e acabamento</h3>
-        <ul>
-          <li><span>Preto e branco</span><b>a partir de R$ 1,00</b></li>
-          <li><span>Coloridas</span><b>a partir de R$ 2,00</b></li>
-          <li><span>Encadernação</span><b>a partir de R$ 7,00</b></li>
-          <li><span>Plastificação</span><b>a partir de R$ 6,00</b></li>
-          <li><span>Sacola ecobag</span><b>R$ 39,00</b></li>
-        </ul>
+    </section>
+    <div class="divider divider-rise" style="--from:var(--tone-teal);--to:var(--tone-yellow)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 100V52C180 14 360 14 540 46S900 88 1080 52S1340 18 1440 44V100Z"/></svg><span class="deco" style="left:14%;width:30px;--speed:0.14"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4 12 12 5-12 5-4 12-4-12-12-5 12-5Z" fill="#fbb92a"/></svg></span><span class="deco" style="left:72%;width:76px;--speed:0.08"><svg viewBox="0 0 80 48" aria-hidden="true"><path d="M16 44C6 44 2 34 8 28c-2-10 8-16 16-12C28 6 46 6 50 18c10-4 22 4 18 14 8 2 8 12 0 12Z" fill="#fff"/></svg></span></div>
+    <section id="precos" class="section prices-section">
+      <div class="wrap prices-grid">
+        <div class="prices-copy" data-reveal><p class="eyebrow">Pequenos detalhes, muitas possibilidades</p><h2>Seu desenho favorito.<br><span class="pink-text">Seu botton favorito.</span></h2><p>Escolha o tamanho e conte sua ideia. Também temos kits com 3 unidades.</p><a class="button button-primary" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20bottons%20personalizados." target="_blank" rel="noopener">Quero personalizar <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><p class="price-note">Valores de referência. Consulte condições para quantidades maiores.</p></div>
+        <div class="price-sheet" data-reveal><div class="builder" hidden>
+          <div class="builder-stage" data-qty="1">
+            <div class="builder-pins" aria-hidden="true"><div class="bpin bpin-1"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-flower"/></svg></div><div class="bpin bpin-2"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-flower"/></svg></div><div class="bpin bpin-3"><svg viewBox="0 0 100 100" aria-hidden="true"><use href="#m-flower"/></svg></div></div>
+            <div class="builder-ruler" aria-hidden="true"><span class="builder-ruler-label">4,4 cm</span></div>
+            <div class="builder-sparks" aria-hidden="true"></div>
+            <p class="builder-hint">Exemplos de estampa. Você escolhe o desenho!</p>
+          </div>
+          <fieldset class="builder-group"><legend>Tamanho</legend><div class="builder-opts opts-3"><label class="opt opt-size"><input type="radio" name="b-size" value="P"><span class="opt-circle" style="--cm:3.2" aria-hidden="true">P</span><span class="opt-name">3,2 cm</span><span class="opt-price">R$ 5,00</span></label><label class="opt opt-size"><input type="radio" name="b-size" value="M" checked><span class="opt-circle" style="--cm:4.4" aria-hidden="true">M</span><span class="opt-name">4,4 cm</span><span class="opt-price">R$ 7,00</span></label><label class="opt opt-size"><input type="radio" name="b-size" value="G"><span class="opt-circle" style="--cm:5.8" aria-hidden="true">G</span><span class="opt-name">5,8 cm</span><span class="opt-price">R$ 9,00</span></label></div></fieldset>
+          <fieldset class="builder-group"><legend>Quantidade</legend><div class="builder-opts opts-2"><label class="opt opt-qty"><input type="radio" name="b-qty" value="1" checked><span class="opt-name">1 botton</span></label><label class="opt opt-qty"><input type="radio" name="b-qty" value="3"><span class="opt-name">Kit com 3</span><span class="opt-flag">mais em conta</span></label></div></fieldset>
+          <fieldset class="builder-group"><legend>Estampa de exemplo</legend><div class="builder-opts opts-5"><label class="opt opt-theme"><input type="radio" name="b-theme" value="flower" checked><svg class="opt-thumb" viewBox="0 0 100 100" aria-hidden="true"><use href="#m-flower"/></svg><span>Flor</span></label><label class="opt opt-theme"><input type="radio" name="b-theme" value="heart"><svg class="opt-thumb" viewBox="0 0 100 100" aria-hidden="true"><use href="#m-heart"/></svg><span>Coração</span></label><label class="opt opt-theme"><input type="radio" name="b-theme" value="star"><svg class="opt-thumb" viewBox="0 0 100 100" aria-hidden="true"><use href="#m-star"/></svg><span>Estrela</span></label><label class="opt opt-theme"><input type="radio" name="b-theme" value="car"><svg class="opt-thumb" viewBox="0 0 100 100" aria-hidden="true"><use href="#m-car"/></svg><span>Carrinho</span></label><label class="opt opt-theme"><input type="radio" name="b-theme" value="girl"><svg class="opt-thumb" viewBox="0 0 100 100" aria-hidden="true"><use href="#m-girl"/></svg><span>Menina</span></label></div></fieldset>
+          <div class="builder-total"><div><span class="builder-label">Total de referência</span><strong class="builder-price" aria-live="polite">R$ 7,00</strong></div><span class="builder-save" hidden></span></div>
+          <a class="button button-primary builder-cta" href="https://wa.me/5511970529778" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Pedir este botton</a>
+        </div>
+        <div class="price-fallback"><div class="price-sheet-heading"><h3>Bottons personalizados</h3><span>Escolha o seu</span></div><div class="table-scroll"><table><caption class="sr-only">Preços por tamanho e kits com três bottons</caption><thead><tr><th scope="col">Tamanho</th><th scope="col">Unidade</th><th scope="col">Kit com 3</th></tr></thead><tbody><tr><th scope="row"><span class="size-marker">P</span><span>3,2 cm</span></th><td>R$ 5,00</td><td>R$ 12,00</td></tr><tr><th scope="row"><span class="size-marker">M</span><span>4,4 cm</span></th><td>R$ 7,00</td><td>R$ 16,00</td></tr><tr><th scope="row"><span class="size-marker">G</span><span>5,8 cm</span></th><td>R$ 9,00</td><td>R$ 20,00</td></tr></tbody></table></div></div><p><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg> Do jeitinho que você imagina.</p></div>
+      </div>
+    </section>
+    <div class="divider divider-hang" style="--from:var(--tone-yellow);--to:var(--tone-cream)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 0V34A45.0 30 0 0 0 90.0 34A45.0 30 0 0 0 180.0 34A45.0 30 0 0 0 270.0 34A45.0 30 0 0 0 360.0 34A45.0 30 0 0 0 450.0 34A45.0 30 0 0 0 540.0 34A45.0 30 0 0 0 630.0 34A45.0 30 0 0 0 720.0 34A45.0 30 0 0 0 810.0 34A45.0 30 0 0 0 900.0 34A45.0 30 0 0 0 990.0 34A45.0 30 0 0 0 1080.0 34A45.0 30 0 0 0 1170.0 34A45.0 30 0 0 0 1260.0 34A45.0 30 0 0 0 1350.0 34A45.0 30 0 0 0 1440.0 34V0Z"/></svg><span class="deco" style="left:86%;width:40px;--speed:0.12"><svg viewBox="0 0 40 64" aria-hidden="true"><path d="M20 46c0 6-4 10-2 17" stroke="#8a6c55" fill="none"/><ellipse cx="20" cy="22" rx="16" ry="20" fill="#17a6b5"/><ellipse cx="14" cy="14" rx="3.5" ry="6" fill="#fff" opacity=".4"/></svg></span><span class="deco" style="left:20%;width:28px;--speed:0.17"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35C6 24 4 14 11 9c4-3 8-1 9 3 1-4 5-6 9-3 7 5 5 15-9 26Z" fill="#e0306f"/></svg></span></div>
+        <section id="explorar" class="section explore-section">
+      <div class="wrap explore-grid">
+        <div class="explore-copy" data-reveal>
+          <p class="eyebrow">Quer explorar mais?</p>
+          <h2>Tem muito mais<br><span class="pink-text">no nosso Instagram.</span></h2>
+          <p>Novidades, bastidores e ideias de presentes e lembrancinhas, feitas com carinho. Vem ver de pertinho e acompanhar.</p>
+          <a class="button button-primary" href="https://www.instagram.com/artesmamaemundocriar/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Abrir o Instagram <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="ig-stack" data-reveal><a class="ig-card" href="https://www.instagram.com/artesmamaemundocriar/" target="_blank" rel="noopener" aria-label="Abrir o perfil @artesmamaemundocriar no Instagram">
+          <span class="ig-top"><span class="ig-avatar"><img src="img/logo.png" width="640" height="640" loading="lazy" alt=""></span><span class="ig-id"><strong>artesmamaemundocriar</strong><small>Artes Mamãe Mundo Criar · Papelaria e Presentes</small></span><svg class="icon ig-logo" aria-hidden="true"><use href="#i-instagram"/></svg></span>
+          <span class="ig-bio">Criar, ensinar e amar faz parte do nosso mundo!</span>
+          <span class="ig-chips" aria-hidden="true"><span>Novidades</span><span>Bastidores</span><span>Ideias de presentes</span><span>Lembrancinhas</span><span>Papelaria</span></span>
+          <span class="ig-follow">Ver perfil <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </a>
+        <a class="ig-sweets" href="https://www.instagram.com/pedacinhodoaamor/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span>Quer ver os doces? Siga o <strong>@pedacinhodoaamor</strong></span><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
+      </div>
+    </section>
+    <div class="divider divider-rise divider-rainbow" style="--from:var(--tone-cream);--to:var(--tone-pink)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 100V44C360 -8 1080 -8 1440 44V100Z" fill="#e0306f" class="keep"/><path d="M0 100V53C360 1 1080 1 1440 53V100Z" fill="#fbb92a" class="keep"/><path d="M0 100V62C360 10 1080 10 1440 62V100Z" fill="#3db56d" class="keep"/><path d="M0 100V71C360 19 1080 19 1440 71V100Z" fill="#5bb8f0" class="keep"/><path d="M0 100V80C360 28 1080 28 1440 80V100Z"/></svg><span class="deco" style="left:12%;width:80px;--speed:0.09"><svg viewBox="0 0 80 48" aria-hidden="true"><path d="M16 44C6 44 2 34 8 28c-2-10 8-16 16-12C28 6 46 6 50 18c10-4 22 4 18 14 8 2 8 12 0 12Z" fill="#fff"/></svg></span><span class="deco" style="left:84%;width:30px;--speed:0.15"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4 12 12 5-12 5-4 12-4-12-12-5 12-5Z" fill="#fbb92a"/></svg></span></div>
+    <section id="sobre" class="section about-section">
+      <div class="wrap about-grid">
+        <div class="about-art" data-reveal><div class="about-art-label">Criar. Ensinar. Amar.</div><svg class="about-svg" viewBox="0 0 400 340" role="img" aria-label="Ilustração animada de lápis coloridos desenhando o arco-íris da marca sobre uma folha de papel">
+<g transform="rotate(-2 200 170)"><rect x="34" y="22" width="332" height="296" rx="10" fill="#000" opacity=".08" transform="translate(5 7)"/><rect x="34" y="22" width="332" height="296" rx="10" fill="#fff"/><g stroke="#eadfe4" stroke-width="2" stroke-dasharray="5 6"><path d="M54 50H346"/><path d="M54 298H346"/></g>
+<g class="ab-clouds"><path class="ab-cloud ab-cloud1" d="M64 238C58 228 60 214 66 204C74 190 90 191 102 198C100 174 110 152 134 150C156 149 164 166 162 192C174 178 192 182 198 196C204 210 198 228 196 238Z" fill="#fde9bf"/><path class="ab-cloud ab-cloud2" d="M204 238C200 228 198 212 206 200C213 188 224 188 232 200C233 178 244 162 258 163C272 164 280 184 279 204C289 193 306 199 312 214L312 238Z" fill="#fde9bf"/></g>
+<g class="ab-arcs"><path class="ab-arc ab-arc1" pathLength="1" d="M80 238 A120 120 0 0 1 320 238" fill="none" stroke="#e0306f" stroke-width="20" stroke-linecap="round"/><path class="ab-arc ab-arc2" pathLength="1" d="M106 238 A94 94 0 0 1 294 238" fill="none" stroke="#fbb92a" stroke-width="20" stroke-linecap="round"/><path class="ab-arc ab-arc3" pathLength="1" d="M132 238 A68 68 0 0 1 268 238" fill="none" stroke="#3db56d" stroke-width="20" stroke-linecap="round"/><path class="ab-arc ab-arc4" pathLength="1" d="M158 238 A42 42 0 0 1 242 238" fill="none" stroke="#5bb8f0" stroke-width="20" stroke-linecap="round"/></g>
+<g class="ab-hearts"><path class="ab-heart ab-heart1" transform="translate(158 286) scale(.9)" d="M0-7C-7-19-21-17-17-4C-15 5-7 12 0 17C7 12 15 5 17-4C21-17 7-19 0-7Z" fill="#ec5b8f"/><path class="ab-heart ab-heart2" transform="translate(190 286) scale(.9)" d="M0-7C-7-19-21-17-17-4C-15 5-7 12 0 17C7 12 15 5 17-4C21-17 7-19 0-7Z" fill="#fbb92a"/><path class="ab-heart ab-heart3" transform="translate(222 286) scale(.9)" d="M0-7C-7-19-21-17-17-4C-15 5-7 12 0 17C7 12 15 5 17-4C21-17 7-19 0-7Z" fill="#7cc7f2"/><path class="ab-heart ab-heart4" transform="translate(254 286) scale(.9)" d="M0-7C-7-19-21-17-17-4C-15 5-7 12 0 17C7 12 15 5 17-4C21-17 7-19 0-7Z" fill="#3db56d"/></g>
+<g class="ab-sparks" fill="#fbb92a"><g class="ab-sp ab-sp1" transform="translate(76 76)"><path d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g><g class="ab-sp ab-sp2" transform="translate(324 92)" fill="#17a6b5"><path d="M0-9 2-2 9 0 2 2 0 9-2 2-9 0-2-2Z"/></g></g>
+<g class="ab-pencils"><g class="ab-pencil ab-pencil1" style="offset-path: path('M80 238 A120 120 0 0 1 320 238')"><path d="M0 0 6-15 16-5Z" fill="#f6d9b0"/><path d="M0 0 2.4-6 6-2.4Z" fill="#e0306f"/><path d="M6-15 36-45 46-35 16-5Z" fill="#e0306f"/><path d="M36-45 40-49 50-39 46-35Z" fill="#fff" opacity=".8"/></g><g class="ab-pencil ab-pencil2" style="offset-path: path('M106 238 A94 94 0 0 1 294 238')"><path d="M0 0 6-15 16-5Z" fill="#f6d9b0"/><path d="M0 0 2.4-6 6-2.4Z" fill="#fbb92a"/><path d="M6-15 36-45 46-35 16-5Z" fill="#fbb92a"/><path d="M36-45 40-49 50-39 46-35Z" fill="#fff" opacity=".8"/></g><g class="ab-pencil ab-pencil3" style="offset-path: path('M132 238 A68 68 0 0 1 268 238')"><path d="M0 0 6-15 16-5Z" fill="#f6d9b0"/><path d="M0 0 2.4-6 6-2.4Z" fill="#3db56d"/><path d="M6-15 36-45 46-35 16-5Z" fill="#3db56d"/><path d="M36-45 40-49 50-39 46-35Z" fill="#fff" opacity=".8"/></g><g class="ab-pencil ab-pencil4" style="offset-path: path('M158 238 A42 42 0 0 1 242 238')"><path d="M0 0 6-15 16-5Z" fill="#f6d9b0"/><path d="M0 0 2.4-6 6-2.4Z" fill="#5bb8f0"/><path d="M6-15 36-45 46-35 16-5Z" fill="#5bb8f0"/><path d="M36-45 40-49 50-39 46-35Z" fill="#fff" opacity=".8"/></g></g></g></svg><span class="about-art-note">Um mundo de possibilidades.</span></div>
+        <div class="about-copy" data-reveal><p class="eyebrow">Por trás de cada detalhe</p><h2>Um pouco de carinho.<br><span class="pink-text">Um mundo de ideias.</span></h2><p>A Artes Mamãe Mundo Criar nasceu do carinho por criar, ensinar e amar. Aqui, papelaria, presentes e personalizados fazem parte do mesmo mundo: o de cuidar dos pequenos detalhes.</p><p>Do botton com o desenho favorito da criança à lembrancinha da festa, cada ideia é um convite para criar juntos.</p><a class="button button-primary" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Tenho%20uma%20ideia%20e%20gostaria%20de%20conversar%20com%20voc%C3%AAs." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Conte sua ideia pra gente</a></div>
+      </div>
+      <div class="wrap">
+        <ol class="pillars" data-reveal><li class="pillar pillar-criar"><span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-gift"/></svg></span><h3>Criar</h3><p>Bottons, presentes e lembrancinhas personalizados do jeitinho que você imagina.</p></li><li class="pillar pillar-ensinar"><span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-book"/></svg></span><h3>Ensinar</h3><p>Arquivos pedagógicos e atividades infantis para a Educação Infantil e o Ensino Fundamental.</p></li><li class="pillar pillar-amar"><span class="pillar-icon"><svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg></span><h3>Amar</h3><p>Atendimento com carinho e doces de fabricação própria: o Pedacinho do Amor.</p></li></ol>
+        <ul class="stats" data-reveal><li><strong class="stat-num" data-count="5" data-decimals="1">5,0</strong><span>nota no Google</span></li><li><strong class="stat-num" data-count="18" data-decimals="0">+18</strong><span>anos de doces Pedacinho do Amor</span></li><li><strong class="stat-num" data-count="10" data-decimals="0">10</strong><span>categorias de produtos e serviços</span></li></ul>
+      </div>
+    </section>
+    <div class="divider divider-rise" style="--from:var(--tone-pink);--to:var(--tone-sand)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 100V40C200 82 420 82 620 48S1000 6 1220 40S1400 68 1440 52V100Z"/></svg><span class="deco" style="left:76%;width:30px;--speed:0.15"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35C6 24 4 14 11 9c4-3 8-1 9 3 1-4 5-6 9-3 7 5 5 15-9 26Z" fill="#e0306f"/></svg></span><span class="deco" style="left:18%;width:76px;--speed:0.1"><svg viewBox="0 0 80 48" aria-hidden="true"><path d="M16 44C6 44 2 34 8 28c-2-10 8-16 16-12C28 6 46 6 50 18c10-4 22 4 18 14 8 2 8 12 0 12Z" fill="#fff"/></svg></span></div>
+    <section class="sweets-section"><div class="wrap sweets-inner" data-reveal><svg class="sweets-illustration" viewBox="0 0 160 150" role="img" aria-label="Ilustração de cupcake"><ellipse cx="80" cy="138" rx="52" ry="7" fill="#e6c9b6"/><path d="m38 77 12 55h59l13-55Z" fill="#cf6884"/><path d="m53 84 7 42m13-42 3 42m16-42-3 42m18-42-8 42" stroke="#f2c0ce" stroke-width="4"/><path d="M36 78c-6-18 5-31 21-31-1-18 16-28 28-18 13-10 28 3 26 18 21-1 31 16 18 31Z" fill="#fffaf4" stroke="#e9d0bc" stroke-width="3"/><circle cx="82" cy="22" r="10" fill="#c52a62"/><path d="M83 13c0-9 6-10 10-10" fill="none" stroke="#42776a" stroke-width="3"/><path d="m57 61 6 4m30-15-4 5m17 11 5-3" stroke="#daaa43" stroke-width="4" stroke-linecap="round"/></svg><div><p class="eyebrow">Um lado doce do nosso mundo</p><h2>Pedacinho do Amor</h2><p>Doces de fabricação própria, feitos com carinho.<br>Há mais de 18 anos no mercado.</p></div><div class="sweets-actions"><a class="button button-outline" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Gostaria%20de%20conhecer%20os%20doces%20do%20Pedacinho%20do%20Amor." target="_blank" rel="noopener">Consultar doces <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a><a class="button button-outline sweets-ig" href="https://www.instagram.com/pedacinhodoaamor/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> @pedacinhodoaamor</a></div></div></section>
+    <div class="divider divider-rise" style="--from:var(--tone-sand);--to:var(--tone-cream)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 100V72A51.8 26 0 0 1 103.5 72A70.6 38 0 0 1 244.7 72A42.4 22 0 0 1 329.4 72A80.0 42 0 0 1 489.4 72A56.5 30 0 0 1 602.4 72A47.1 26 0 0 1 696.5 72A75.3 38 0 0 1 847.1 72A61.2 22 0 0 1 969.4 72A44.7 42 0 0 1 1058.8 72A70.6 30 0 0 1 1200.0 72A54.1 26 0 0 1 1308.2 72A65.9 38 0 0 1 1440.0 72V100Z"/></svg><span class="deco" style="left:10%;width:38px;--speed:0.12"><svg viewBox="0 0 40 64" aria-hidden="true"><path d="M20 46c0 6-4 10-2 17" stroke="#8a6c55" fill="none"/><ellipse cx="20" cy="22" rx="16" ry="20" fill="#17a6b5"/><ellipse cx="14" cy="14" rx="3.5" ry="6" fill="#fff" opacity=".4"/></svg></span><span class="deco" style="left:82%;width:28px;--speed:0.16"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4 12 12 5-12 5-4 12-4-12-12-5 12-5Z" fill="#fbb92a"/></svg></span></div>
+    <section class="section order-section"><div class="wrap"><div class="section-heading" data-reveal><p class="eyebrow">Vamos tirar a ideia do papel?</p><h2>Começa com uma conversa.</h2></div><ol class="order-steps"><li data-reveal><span class="step-number">01</span><h3>Conte sua ideia</h3><p>Envie o produto, o tema e a quantidade que você tem em mente.</p></li><li data-reveal><span class="step-number">02</span><h3>Combine os detalhes</h3><p>Converse com a gente sobre possibilidades, valores e prazos.</p></li><li data-reveal><span class="step-number">03</span><h3>Confirme seu pedido</h3><p>Com os detalhes combinados, é hora de dar vida à sua ideia.</p></li></ol></div></section>
+    <div class="divider divider-rise" style="--from:var(--tone-cream);--to:var(--tone-teal)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 100V52C180 14 360 14 540 46S900 88 1080 52S1340 18 1440 44V100Z"/></svg><span class="deco" style="left:70%;width:80px;--speed:0.09"><svg viewBox="0 0 80 48" aria-hidden="true"><path d="M16 44C6 44 2 34 8 28c-2-10 8-16 16-12C28 6 46 6 50 18c10-4 22 4 18 14 8 2 8 12 0 12Z" fill="#fff"/></svg></span><span class="deco" style="left:16%;width:28px;--speed:0.14"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35C6 24 4 14 11 9c4-3 8-1 9 3 1-4 5-6 9-3 7 5 5 15-9 26Z" fill="#e0306f"/></svg></span></div>
+    <section id="avaliacoes" class="section reviews-section">
+      <div class="wrap reviews-grid">
+        <div class="reviews-copy" data-reveal>
+          <p class="eyebrow">Quem conhece, recomenda</p>
+          <h2>Avaliações no<br><span class="pink-text">Google.</span></h2>
+          <div class="rating-medal">
+            <div class="medal" role="img" aria-label="Nota 5,0 de 5 no Google Maps"><span class="medal-ring" aria-hidden="true"></span><strong class="stat-num" data-count="5" data-decimals="1">5,0</strong></div>
+            <div class="rating-info"><span class="stars" aria-hidden="true"><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon star" aria-hidden="true"><use href="#i-star"/></svg></span><span class="rating-label">Nota no Google Maps</span></div>
+          </div>
+          <p class="reviews-thanks">Obrigada por fazer parte do nosso mundo <span aria-hidden="true">♥</span></p>
+          <p class="reviews-lead">Sua avaliação ajuda outras famílias a nos encontrar e nos faz muito felizes.</p>
+          <ol class="review-steps"><li><span class="svc-dot" aria-hidden="true">1</span>Abra o nosso perfil no Google</li><li><span class="svc-dot" aria-hidden="true">2</span>Dê a sua nota de 1 a 5 estrelas</li><li><span class="svc-dot" aria-hidden="true">3</span>Conte como foi, se quiser</li></ol>
+          <div class="reviews-actions"><a class="button button-primary" href="https://www.google.com/maps/place/Artes+Mam%C3%A3e+Mundo+Criar/@-23.6263387,-46.4783938,995m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94ce69c417c507d3:0x100374c0f0150c3!8m2!3d-23.6263387!4d-46.4783938!16s%2Fg%2F11h5mfn913" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg> Ver e deixar avaliação</a></div>
+        </div>
+        <div class="reviews-place" data-reveal>
+          <div class="map-facade">
+            <svg class="map-art" viewBox="0 0 400 300" aria-hidden="true" preserveAspectRatio="xMidYMid slice"><rect width="400" height="300" fill="#fbf4ea"/>
+<g stroke="#fff" stroke-width="14" stroke-linecap="round" fill="none"><path d="M0 86H400"/><path d="M0 170H400"/><path d="M0 248H400"/><path d="M100 0V300"/><path d="M180 0V300"/><path d="M280 0V300"/></g>
+<path d="M0 214C80 196 150 226 230 212S360 196 400 214" stroke="#cdeff2" stroke-width="12" fill="none" stroke-linecap="round" opacity=".9"/>
+<rect x="20" y="20" width="70" height="50" rx="9" fill="#f9d9e3"/><rect x="110" y="20" width="60" height="50" rx="9" fill="#fde9bf"/><rect x="190" y="24" width="80" height="46" rx="9" fill="#d4eef0"/><rect x="290" y="20" width="90" height="50" rx="9" fill="#f9d9e3"/><rect x="20" y="100" width="70" height="56" rx="9" fill="#fde9bf"/><rect x="110" y="100" width="60" height="56" rx="9" fill="#f9d9e3"/><rect x="290" y="100" width="90" height="56" rx="9" fill="#d4eef0"/><rect x="20" y="186" width="70" height="50" rx="9" fill="#d4eef0"/><rect x="110" y="186" width="60" height="50" rx="9" fill="#fde9bf"/><rect x="190" y="186" width="80" height="50" rx="9" fill="#f9d9e3"/><rect x="290" y="186" width="90" height="50" rx="9" fill="#fde9bf"/><rect x="20" y="262" width="90" height="26" rx="9" fill="#f9d9e3"/><rect x="130" y="262" width="80" height="26" rx="9" fill="#d4eef0"/><rect x="230" y="262" width="150" height="26" rx="9" fill="#fde9bf"/><g><rect x="190" y="100" width="80" height="56" rx="9" fill="#cfeedb"/><circle cx="212" cy="124" r="7" fill="#3db56d"/><circle cx="238" cy="132" r="9" fill="#6fcf97"/><circle cx="254" cy="114" r="6" fill="#3db56d"/></g>
+<circle class="pin-pulse" cx="180" cy="128" r="22" fill="#e0306f" opacity=".25"/>
+<g class="pin-drop"><path d="M180 128c-12-13-20-24-20-35a20 20 0 0 1 40 0c0 11-8 22-20 35Z" fill="#e0306f"/><circle cx="180" cy="94" r="8" fill="#fff"/></g></svg>
+            <div class="map-card"><strong>Estamos aqui</strong><address>R. Francisco Alves, 54<br>Jardim Sonia Maria · Mauá – SP<br>09380-360</address></div>
+            <button class="map-load" type="button" hidden>Abrir mapa interativo</button>
+            <noscript><a class="map-load" href="https://www.google.com/maps/place/Artes+Mam%C3%A3e+Mundo+Criar/@-23.6263387,-46.4783938,995m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94ce69c417c507d3:0x100374c0f0150c3!8m2!3d-23.6263387!4d-46.4783938!16s%2Fg%2F11h5mfn913" target="_blank" rel="noopener">Abrir mapa</a></noscript>
+          </div>
+          <div class="route-links"><p>Como chegar</p><a href="https://www.google.com/maps/place/Artes+Mam%C3%A3e+Mundo+Criar/@-23.6263387,-46.4783938,995m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94ce69c417c507d3:0x100374c0f0150c3!8m2!3d-23.6263387!4d-46.4783938!16s%2Fg%2F11h5mfn913" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg> Google Maps</a></div>
+        </div>
+      </div>
+    </section>
+    <div class="divider divider-hang" style="--from:var(--tone-teal);--to:var(--tone-cream)" aria-hidden="true"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" focusable="false"><path d="M0 0V34A45.0 30 0 0 0 90.0 34A45.0 30 0 0 0 180.0 34A45.0 30 0 0 0 270.0 34A45.0 30 0 0 0 360.0 34A45.0 30 0 0 0 450.0 34A45.0 30 0 0 0 540.0 34A45.0 30 0 0 0 630.0 34A45.0 30 0 0 0 720.0 34A45.0 30 0 0 0 810.0 34A45.0 30 0 0 0 900.0 34A45.0 30 0 0 0 990.0 34A45.0 30 0 0 0 1080.0 34A45.0 30 0 0 0 1170.0 34A45.0 30 0 0 0 1260.0 34A45.0 30 0 0 0 1350.0 34A45.0 30 0 0 0 1440.0 34V0Z"/></svg><span class="deco" style="left:10%;width:30px;--speed:0.15"><svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3l4 12 12 5-12 5-4 12-4-12-12-5 12-5Z" fill="#fbb92a"/></svg></span><span class="deco" style="left:88%;width:38px;--speed:0.11"><svg viewBox="0 0 40 64" aria-hidden="true"><path d="M20 46c0 6-4 10-2 17" stroke="#8a6c55" fill="none"/><ellipse cx="20" cy="22" rx="16" ry="20" fill="#17a6b5"/><ellipse cx="14" cy="14" rx="3.5" ry="6" fill="#fff" opacity=".4"/></svg></span></div>
+    <section id="contato" class="contact-section">
+      <div class="wrap">
+        <div class="contact-panel" data-reveal>
+          <div class="contact-copy">
+            <p class="eyebrow">Seu próximo detalhe especial está aqui</p>
+            <h2>O que vamos<br><span class="pink-text">criar juntos?</span></h2>
+            <p class="contact-lead">Peça um orçamento, consulte um produto ou mande aquela ideia que você quer tirar do papel.</p>
+            <div class="contact-actions">
+              <a class="button button-whatsapp-solid" href="https://wa.me/5511970529778?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20conversar%20sobre%20um%20pedido." target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg> Conversar no WhatsApp</a>
+              <a class="button button-outline" href="https://www.instagram.com/artesmamaemundocriar/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg> Instagram</a>
+            </div>
+            <ul class="contact-info">
+              <li><span class="info-dot" aria-hidden="true"></span><a href="tel:+5511970529778">(11) 97052-9778</a></li>
+              <li><span class="info-dot info-dot-teal" aria-hidden="true"></span><a href="https://www.google.com/maps/place/Artes+Mam%C3%A3e+Mundo+Criar/@-23.6263387,-46.4783938,995m/data=!3m2!1e3!4b1!4m6!3m5!1s0x94ce69c417c507d3:0x100374c0f0150c3!8m2!3d-23.6263387!4d-46.4783938!16s%2Fg%2F11h5mfn913" target="_blank" rel="noopener">R. Francisco Alves, 54 · Jardim Sonia Maria · Mauá – SP</a></li>
+            </ul>
+          </div>
+          <figure class="chat-demo" role="img" aria-label="Exemplo ilustrativo de uma conversa de pedido no WhatsApp">
+            <div class="chat-head"><img src="img/logo.png" width="640" height="640" loading="lazy" alt=""><span><strong>Artes Mamãe Mundo Criar</strong><small>responde com carinho</small></span></div>
+            <div class="chat-body"><p class="bubble bubble-in bubble-1">Oi! Quero um kit de bottons para a festa da minha filha.</p><p class="bubble bubble-out bubble-2">Que lindo! Conta pra gente o tema e a data.</p><p class="bubble bubble-in bubble-3">Tema unicórnio, a festa é dia 20.</p><p class="bubble bubble-out bubble-4">Perfeito! Já te passo o orçamento.</p></div>
+            <figcaption>Exemplo de conversa</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="footer-rainbow" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="wrap footer-grid">
+      <div class="footer-brand-block">
+        <a class="footer-brand" href="#inicio"><img src="img/logo.png" width="640" height="640" loading="lazy" alt=""><span>Artes Mamãe<strong>Mundo Criar.</strong></span></a>
+        <p>Papelaria, presentes e personalizados feitos com carinho.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Rodapé"><a href="#produtos">Personalizados</a><a href="#servicos">Serviços</a><a href="#precos">Preços</a><a href="#avaliacoes">Avaliações</a><a href="#sobre">Nossa história</a><a href="#contato">Contato</a></nav>
+      <div class="footer-social">
+        <p>Acompanhe</p>
+        <a href="https://www.instagram.com/artesmamaemundocriar/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span>@artesmamaemundocriar</span></a>
+        <a href="https://www.instagram.com/pedacinhodoaamor/" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg><span>@pedacinhodoaamor</span></a>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="galeria" class="aqua">
-  <div class="wrap">
-    <div class="titulo"><h2>Catálogo</h2><p>Clique para ampliar</p></div>
-    <div class="galeria">
-      <figure><img src="img/catalogo.webp" alt="Catálogo geral de produtos" loading="lazy"><figcaption>Tudo que você precisa</figcaption></figure>
-      <figure><img src="img/bottons.webp" alt="Tabela de bottons personalizados" loading="lazy"><figcaption>Bottons personalizados</figcaption></figure>
-      <figure><img src="img/servicos.webp" alt="Lista de serviços" loading="lazy"><figcaption>Nossos serviços</figcaption></figure>
-    </div>
-  </div>
-</section>
-
-<section id="sobre" class="sobre">
-  <div class="wrap">
-    <div>
-      <h2>Feito com amor, pensado para você e sua família</h2>
-      <p>A Artes Mamãe Mundo Criar nasceu do carinho por criar, ensinar e amar. Somos uma papelaria cheia de personalidade, com serviços de xerox e impressão, produtos personalizados e presentes que levam afeto em cada detalhe.</p>
-      <p>Aqui cada pedido é feito do seu jeito: do botton com o desenho favorito da criança à lembrancinha da festa.</p>
-      <a class="btn btn-rosa" href="#contato">Fale com a gente</a>
-    </div>
-    <div class="valores">
-      <div class="valor" style="background:var(--rosa-claro)"><span>💗</span>Atendimento com carinho</div>
-      <div class="valor" style="background:var(--amarelo-claro)"><span>⭐</span>Qualidade que você confia</div>
-      <div class="valor" style="background:var(--teal-claro)"><span>🎨</span>Personalizado do seu jeito</div>
-      <div class="valor" style="background:var(--verde-claro)"><span>🌍</span>Sustentável, com propósito</div>
-    </div>
-  </div>
-</section>
-
-<section class="doces">
-  <div class="wrap">
-    <div class="box">
-      <h2>Pedacinho do Amor</h2>
-      <p style="margin:10px 0 0;font-size:1.1rem">🧁 Doces de fabricação própria<br>Há mais de 18 anos no mercado, feitos com muito carinho.</p>
-    </div>
-  </div>
-</section>
-
-<section id="contato" class="contato aqua">
-  <div class="wrap">
-    <div class="box">
-      <h2>Vamos criar juntos?</h2>
-      <p>Peça seu orçamento ou tire dúvidas pelo WhatsApp ou Instagram.</p>
-      <div class="links">
-        <a class="btn btn-zap" href="https://wa.me/5511970529778" target="_blank" rel="noopener">💬 (11) 97052-9778</a>
-        <a class="btn btn-rosa" href="https://www.instagram.com/artesmamaemundocriar/" target="_blank" rel="noopener">📷 @artesmamaemundocriar</a>
-      </div>
-    </div>
-  </div>
-</section>
-</main>
-
-<footer>
-  <p>© <span id="ano"></span> Artes Mamãe Mundo Criar · Papelaria e Presentes</p>
-</footer>
-
-<a class="zap-fixo" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">💬 WhatsApp</a>
-
-<div class="lightbox" id="lb"><img alt=""></div>
-
-<script>
-document.getElementById('ano').textContent=new Date().getFullYear();
-document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('on')));
-const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
-document.querySelectorAll('.galeria img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lb.classList.add('on')}));
-lb.addEventListener('click',()=>lb.classList.remove('on'));
-</script>
+    <p class="footer-copy">© <span id="ano">2026</span> · Feito com amor, pensado para você.</p>
+  </footer>
+  <a class="floating-whatsapp" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg class="icon" aria-hidden="true"><use href="#i-whatsapp"/></svg><span>Vamos conversar?</span></a>
 </body>
 </html>
