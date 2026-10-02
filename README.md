@@ -14,18 +14,32 @@ HTML, CSS e JavaScript puros, sem ferramentas de build ou dependências de execu
 
 - `index.html`: conteúdo, navegação, produtos, catálogo e contato.
 - `styles.css`: identidade visual e layouts responsivos.
-- `script.js`: menu mobile, ampliação acessível do catálogo e entradas discretas ao rolar.
-- `img/`: logo e materiais originais da marca.
+- `script.js`: menu mobile, catálogo ampliado, carrossel de produtos, painéis de serviços e movimento opcional.
+- `img/`: logo, materiais originais da marca e fotos ilustrativas em WebP.
+- `FONTES-IMAGENS.md`: créditos, fontes e licença das fotos.
 
 ## Revisão visual
 
-Redesign preparado na branch local `feat/redesign-papelaria`. A versão original está preservada na `main`.
+Redesign inicial preparado em `feat/redesign-papelaria`, com aprimoramentos de interação em `feat/interacoes-portfolio`. A versão original está preservada na `main`.
 
-Os bottons exibidos usam exemplos do catálogo original. As canecas, lembrancinhas e o cupcake são ilustrações vetoriais, identificadas como tal; não representam fotos de pedidos entregues. Valores, telefone e Instagram foram preservados.
+Os bottons exibidos usam exemplos do catálogo original. A vitrine de presentes e a seção sobre usam fotos ilustrativas do Unsplash, com licença e créditos registrados em `FONTES-IMAGENS.md`. O cupcake é uma ilustração vetorial. As fotos de banco não representam pedidos entregues pela loja. Valores, telefone e Instagram foram preservados.
 
 Fotos reais, depoimentos autorizados, região atendida e horários podem ser adicionados quando fornecidos pelo cliente. Não há informações inventadas desses tipos.
 
-O layout contém ajustes para celular, tablet e computador. Navegação e catálogo continuam acessíveis sem JavaScript; movimento respeita `prefers-reduced-motion`. A conferência visual no navegador e o Lighthouse permanecem pendentes por bloqueio de acesso a arquivos locais na ferramenta de navegador da sessão.
+O layout contém ajustes para celular, tablet e computador. Navegação, produtos e catálogo continuam acessíveis sem JavaScript; o carrossel e os painéis são aprimoramentos progressivos.
+
+## Interações inspiradas no portfólio ÚNICO
+
+Referência consultada: https://www.unicoweb.com.br/ (2 de outubro de 2026).
+
+- Vitrine horizontal nativa com rolagem por toque, setas e teclado. Não captura a rolagem vertical da página.
+- Painéis de serviço com orientações para pedir, fechamento por Esc e retorno do foco.
+- Movimento discreto dos bottons com o ponteiro, cursor complementar, barra de progresso e cabeçalho que retorna ao subir ou receber foco.
+- Faixa animada com botão de pausa, pausa ao focar e ao passar o mouse; sem animação contínua na ausência de JavaScript.
+- `prefers-reduced-motion` desativa os efeitos, inclusive quando a preferência muda durante a visita. Efeitos de ponteiro ficam desativados em dispositivos de toque.
+- O movimento usa CSS e JavaScript puros. Não foram adicionados frameworks, rastreadores nem dependências externas de animação.
+
+Verificações realizadas: sintaxe JavaScript, estrutura HTML, referências e IDs, preços originais, contraste dos principais textos e botões e dimensões das fotos WebP. A lógica do menu, da galeria, do carrossel, dos três painéis e dos controles de movimento passou em cinco cenários com DOM simulado (toque, ponteiro, movimento reduzido e fallbacks). Esses testes não validam a aparência nem substituem testes reais no navegador. A conferência visual em 360 e 412 px e o Lighthouse permanecem pendentes por bloqueio de acesso a arquivos locais na ferramenta de navegador da sessão.
 
 ## Fluxo do projeto
 

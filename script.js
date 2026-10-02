@@ -56,6 +56,7 @@ if (typeof lightbox.showModal === 'function') {
       lightboxTitle.textContent = link.dataset.caption;
       lightbox.showModal();
       document.body.classList.add('modal-open');
+      stopPointerMotion();
     });
   });
   lightbox.querySelector('.lightbox-close').addEventListener('click', () => lightbox.close());
@@ -65,7 +66,7 @@ if (typeof lightbox.showModal === 'function') {
     if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) lightbox.close();
   });
   lightbox.addEventListener('close', () => {
-    document.body.classList.remove('modal-open');
+    if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
     if (lastCatalogLink) lastCatalogLink.focus({ preventScroll: true });
   });
 }
@@ -107,3 +108,261 @@ document.addEventListener('keydown', event => {
   if (event.key === 'Tab') showEverything();
 });
 window.addEventListener('beforeprint', showEverything);
+
+// Movimento opcional: muda imediatamente se a preferência do sistema mudar.
+const progressBar = document.querySelector('.scroll-progress');
+const header = document.querySelector('.site-header');
+const motionToggle = document.querySelector('.motion-toggle');
+const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+const showcase = document.querySelector('[data-parallax]');
+const layers = showcase ? showcase.querySelectorAll('[data-depth], .showcase-spark') : [];
+const cursor = document.querySelector('.cursor');
+let motionPaused = false;
+let keyboardMode = false;
+let pointerFrame = 0;
+let parallaxFrame = 0;
+let pointerPositioned = false;
+let mx = 0, my = 0, cx = 0, cy = 0;
+let parallaxX = 0, parallaxY = 0;
+
+function motionAllowed() {
+  return !reducedMotion.matches && !motionPaused && !keyboardMode && !document.hidden && !document.body.classList.contains('modal-open');
+}
+
+function stopPointerMotion() {
+  cancelAnimationFrame(pointerFrame);
+  cancelAnimationFrame(parallaxFrame);
+  pointerFrame = parallaxFrame = 0;
+  pointerPositioned = false;
+  if (cursor) cursor.classList.remove('is-on', 'is-link');
+  layers.forEach(layer => {
+    layer.style.setProperty('--px', '0px');
+    layer.style.setProperty('--py', '0px');
+  });
+}
+
+function syncMotionPreference() {
+  document.body.classList.toggle('motion-enabled', !reducedMotion.matches);
+  document.body.classList.toggle('motion-paused', motionPaused);
+  document.body.classList.toggle('page-idle', document.hidden);
+  if (motionToggle) {
+    motionToggle.hidden = reducedMotion.matches;
+    motionToggle.textContent = motionPaused ? 'Retomar' : 'Pausar';
+    motionToggle.setAttribute('aria-label', motionPaused ? 'Retomar animações da página' : 'Pausar animações da página');
+  }
+  if (!motionAllowed() || !finePointer.matches) stopPointerMotion();
+  if (!motionAllowed()) {
+    header.classList.remove('is-hidden');
+    showEverything();
+  }
+}
+
+if (motionToggle) motionToggle.addEventListener('click', () => {
+  motionPaused = !motionPaused;
+  syncMotionPreference();
+});
+reducedMotion.addEventListener('change', syncMotionPreference);
+finePointer.addEventListener('change', syncMotionPreference);
+document.addEventListener('visibilitychange', syncMotionPreference);
+syncMotionPreference();
+
+// Uma atualização por quadro. O cabeçalho volta ao receber foco por teclado.
+let lastY = window.scrollY;
+let ticking = false;
+function onScroll() {
+  const y = Math.max(0, window.scrollY);
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  if (progressBar) progressBar.style.setProperty('--progress', max > 0 ? Math.min(1, y / max).toFixed(4) : '0');
+  const menuOpen = menuButton.getAttribute('aria-expanded') === 'true';
+  const focused = header.contains(document.activeElement);
+  if (!motionAllowed() || menuOpen || focused || y < 240) header.classList.remove('is-hidden');
+  else if (Math.abs(y - lastY) > 8) header.classList.toggle('is-hidden', y > lastY);
+  if (Math.abs(y - lastY) > 8) lastY = y;
+  ticking = false;
+}
+window.addEventListener('scroll', () => {
+  if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+}, { passive: true });
+window.addEventListener('resize', onScroll);
+header.addEventListener('focusin', () => header.classList.remove('is-hidden'));
+onScroll();
+
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Tab') return;
+  keyboardMode = true;
+  document.body.classList.add('keyboard-navigation');
+  header.classList.remove('is-hidden');
+  stopPointerMotion();
+});
+
+// O cursor nativo permanece disponível. Nenhum quadro é executado em repouso.
+function pointerStep() {
+  if (!motionAllowed() || !finePointer.matches) { stopPointerMotion(); return; }
+  cx += (mx - cx) * 0.24;
+  cy += (my - cy) * 0.24;
+  cursor.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
+  pointerFrame = Math.abs(mx - cx) + Math.abs(my - cy) > 0.5 ? requestAnimationFrame(pointerStep) : 0;
+}
+
+if (cursor) {
+  window.addEventListener('mousemove', event => {
+    if (!finePointer.matches || reducedMotion.matches || motionPaused || document.hidden || document.body.classList.contains('modal-open')) return;
+    keyboardMode = false;
+    document.body.classList.remove('keyboard-navigation');
+    mx = event.clientX;
+    my = event.clientY;
+    if (!pointerPositioned) { cx = mx; cy = my; pointerPositioned = true; }
+    cursor.classList.add('is-on');
+    cursor.classList.toggle('is-link', !!event.target.closest('a, button, summary'));
+    if (!pointerFrame) pointerFrame = requestAnimationFrame(pointerStep);
+  }, { passive: true });
+  document.addEventListener('mouseleave', stopPointerMotion);
+}
+
+if (showcase) {
+  showcase.addEventListener('mousemove', event => {
+    if (!motionAllowed() || !finePointer.matches) return;
+    parallaxX = event.clientX;
+    parallaxY = event.clientY;
+    if (parallaxFrame) return;
+    parallaxFrame = requestAnimationFrame(() => {
+      parallaxFrame = 0;
+      if (!motionAllowed() || !finePointer.matches) return;
+      const box = showcase.getBoundingClientRect();
+      if (!box.width || !box.height) return;
+      const dx = Math.max(-0.5, Math.min(0.5, (parallaxX - box.left) / box.width - 0.5));
+      const dy = Math.max(-0.5, Math.min(0.5, (parallaxY - box.top) / box.height - 0.5));
+      layers.forEach(layer => {
+        const depth = Number(layer.dataset.depth || 1);
+        layer.style.setProperty('--px', `${(dx * 12 * depth).toFixed(1)}px`);
+        layer.style.setProperty('--py', `${(dy * 12 * depth).toFixed(1)}px`);
+      });
+    });
+  }, { passive: true });
+  showcase.addEventListener('mouseleave', stopPointerMotion);
+}
+
+// Carrossel nativo: setas, toque, teclado e links continuam disponíveis.
+const productTrack = document.getElementById('products-track');
+const productCards = productTrack ? Array.from(productTrack.querySelectorAll('.product-card')) : [];
+const carouselToolbar = document.querySelector('.carousel-toolbar');
+const previousProduct = document.querySelector('.carousel-prev');
+const nextProduct = document.querySelector('.carousel-next');
+const carouselStatus = document.querySelector('.carousel-status');
+
+if (productCards.length > 1 && typeof productTrack.scrollTo === 'function') {
+  let statusTimer;
+  function updateCarousel() {
+    const max = Math.max(0, productTrack.scrollWidth - productTrack.clientWidth);
+    previousProduct.disabled = productTrack.scrollLeft <= 2;
+    nextProduct.disabled = productTrack.scrollLeft >= max - 2;
+    const visible = productCards.map((card, index) => {
+      const overlap = Math.max(0, Math.min(card.offsetLeft + card.offsetWidth, productTrack.scrollLeft + productTrack.clientWidth) - Math.max(card.offsetLeft, productTrack.scrollLeft));
+      return overlap > card.offsetWidth / 2 ? index + 1 : null;
+    }).filter(Boolean);
+    if (visible.length) carouselStatus.textContent = `${visible[0]}${visible.length > 1 ? '–' + visible[visible.length - 1] : ''} / ${productCards.length}`;
+  }
+  function moveProducts(direction, keyboard = false) {
+    const step = productCards[1].offsetLeft - productCards[0].offsetLeft;
+    const max = Math.max(0, productTrack.scrollWidth - productTrack.clientWidth);
+    const left = Math.max(0, Math.min(max, productTrack.scrollLeft + direction * step));
+    productTrack.scrollTo({ left, behavior: !keyboard && motionAllowed() ? 'smooth' : 'auto' });
+    updateCarousel();
+  }
+  previousProduct.addEventListener('click', () => moveProducts(-1));
+  nextProduct.addEventListener('click', () => moveProducts(1));
+  productTrack.addEventListener('keydown', event => {
+    if (event.target !== productTrack || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+    event.preventDefault();
+    if (event.key === 'Home' || event.key === 'End') {
+      productTrack.scrollTo({ left: event.key === 'Home' ? 0 : productTrack.scrollWidth, behavior: 'auto' });
+      updateCarousel();
+    } else moveProducts(event.key === 'ArrowRight' ? 1 : -1, true);
+  });
+  productTrack.addEventListener('scroll', () => {
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(updateCarousel, 120);
+  }, { passive: true });
+  document.documentElement.classList.add('carousel-enhanced');
+  productTrack.setAttribute('tabindex', '0');
+  productTrack.setAttribute('aria-roledescription', 'carrossel');
+  productTrack.setAttribute('aria-describedby', 'carousel-help');
+  carouselToolbar.hidden = false;
+  window.addEventListener('resize', updateCarousel);
+  if ('ResizeObserver' in window) new ResizeObserver(updateCarousel).observe(productTrack);
+  updateCarousel();
+}
+
+// Painéis de detalhes inspirados na navegação de serviços do portfólio.
+const serviceDialog = document.getElementById('service-dialog');
+const serviceInformation = {
+  print: {
+    title: 'Impressão e acabamento',
+    intro: 'Conte o que precisa imprimir. Assim podemos conversar sobre o formato, o acabamento e o orçamento.',
+    steps: [
+      ['Envie o material', 'Mande o arquivo ou explique o documento que precisa copiar.'],
+      ['Escolha os detalhes', 'Informe quantidade, preto e branco ou colorido e se precisa de encadernação ou plastificação.'],
+      ['Combine o pedido', 'Consulte os valores, a disponibilidade e o prazo pelo WhatsApp.']
+    ]
+  },
+  education: {
+    title: 'Papelaria e educação',
+    intro: 'Material para o dia a dia e ideias para aprender. Consulte os itens e arquivos pedagógicos disponíveis.',
+    steps: [
+      ['Conte a necessidade', 'Envie sua lista de materiais ou diga qual atividade procura.'],
+      ['Dê o contexto', 'Para arquivos pedagógicos, conte o tema e a etapa escolar.'],
+      ['Confira as opções', 'Converse com a gente sobre produtos, quantidades e valores.']
+    ]
+  },
+  gifts: {
+    title: 'Presentes e personalizados',
+    intro: 'Um presente, uma lembrancinha ou um detalhe para a festa. Vamos entender sua ideia e as possibilidades de personalização.',
+    steps: [
+      ['Escolha o produto', 'Conte se procura bottons, canecas, caixinhas, tags ou outro item do catálogo.'],
+      ['Compartilhe sua ideia', 'Informe o tema, a mensagem, a quantidade e a data que tem em mente.'],
+      ['Combine os detalhes', 'Consulte materiais, disponibilidade, orçamento e prazos antes de confirmar.']
+    ]
+  }
+};
+
+if (serviceDialog && typeof serviceDialog.showModal === 'function') {
+  let lastServiceButton;
+  document.querySelectorAll('[data-service]').forEach(button => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      const info = serviceInformation[button.dataset.service];
+      if (!info) return;
+      document.getElementById('service-dialog-title').textContent = info.title;
+      document.getElementById('service-dialog-intro').textContent = info.intro;
+      const steps = info.steps.map(([title, description], index) => {
+        const item = document.createElement('li');
+        const number = document.createElement('span');
+        number.className = 'step-number';
+        number.textContent = String(index + 1).padStart(2, '0');
+        number.setAttribute('aria-hidden', 'true');
+        const heading = document.createElement('h3');
+        heading.textContent = title;
+        const text = document.createElement('p');
+        text.textContent = description;
+        item.append(number, heading, text);
+        return item;
+      });
+      serviceDialog.querySelector('.service-dialog-steps').replaceChildren(...steps);
+      serviceDialog.querySelector('.service-dialog-contact').href = 'https://wa.me/5511970529778?text=' + encodeURIComponent(`Olá! Gostaria de conversar sobre ${info.title.toLowerCase()}.`);
+      lastServiceButton = button;
+      serviceDialog.showModal();
+      document.body.classList.add('modal-open');
+      stopPointerMotion();
+    });
+  });
+  serviceDialog.querySelector('.service-dialog-close').addEventListener('click', () => serviceDialog.close());
+  serviceDialog.addEventListener('click', event => {
+    if (event.target !== serviceDialog) return;
+    const box = serviceDialog.getBoundingClientRect();
+    if (event.clientX < box.left || event.clientX > box.right || event.clientY < box.top || event.clientY > box.bottom) serviceDialog.close();
+  });
+  serviceDialog.addEventListener('close', () => {
+    if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
+    if (lastServiceButton) lastServiceButton.focus({ preventScroll: true });
+  });
+}
