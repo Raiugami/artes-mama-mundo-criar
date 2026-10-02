@@ -841,3 +841,6 @@ main > :has(+ .divider) { padding-bottom: 40px; }
 .hero-brand-footer > span::before, .hero-brand-footer > span::after { content: "♥" / ""; margin-inline: 10px; color: var(--pink); font-size: .8em; }
 @media (max-width: 860px) { .hero-brand-footer { margin-top: 36px; font-size: 1.1rem; } }
 @media (max-width: 640px) { .hero-brand-footer { margin-top: 8px; } }
+
+.stat-pre { display: block; color: var(--muted); font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.stats .stat-num { margin-top: 2px; }
