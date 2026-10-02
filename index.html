@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Artes Mamãe Mundo Criar | Papelaria, Xerox, Bottons e Presentes</title>
+<meta name="description" content="Artes Mamãe Mundo Criar: papelaria, xerox, impressão, encadernação, plastificação, bottons personalizados, arquivos pedagógicos, presentes e doces de fabricação própria.">
+<meta property="og:title" content="Artes Mamãe Mundo Criar | Papelaria e Presentes">
+<meta property="og:description" content="Tudo que você precisa com amor e criatividade! Feito do jeitinho que você imagina.">
+<meta property="og:image" content="img/logo.png">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rosa:#E0306F; --rosa-claro:#FFD6E4;
+  --teal:#17A6B5; --teal-claro:#CDEFF2;
+  --amarelo:#FBB92A; --amarelo-claro:#FFEFC2;
+  --verde:#3DB56D; --verde-claro:#D3F1DF;
+  --roxo:#8A5BC8; --roxo-claro:#E6DAF6;
+  --creme:#FFF7E8; --marrom:#4A1A2C;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Fredoka',sans-serif;color:var(--marrom);background:var(--creme);line-height:1.5;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* aquarela de fundo */
+.aqua{background:
+  radial-gradient(circle at 8% 10%,var(--rosa-claro) 0,transparent 40%),
+  radial-gradient(circle at 95% 20%,var(--amarelo-claro) 0,transparent 38%),
+  radial-gradient(circle at 5% 90%,var(--teal-claro) 0,transparent 40%),
+  radial-gradient(circle at 92% 85%,var(--rosa-claro) 0,transparent 38%),
+  var(--creme)}
+
+header{position:sticky;top:0;z-index:50;background:rgba(255,247,232,.92);backdrop-filter:blur(8px);border-bottom:2px dashed var(--rosa-claro)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--rosa);font-size:1.05rem;line-height:1.1}
+.brand img{width:46px;height:46px;border-radius:50%}
+.brand span b{color:var(--teal);display:block}
+nav ul{display:flex;gap:22px;list-style:none;font-weight:500}
+nav a:hover{color:var(--rosa)}
+.menu-btn{display:none;background:none;border:0;font-size:1.8rem;color:var(--rosa);cursor:pointer}
+
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;font-weight:600;font-size:1.05rem;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-zap{background:#25D366;color:#fff;box-shadow:0 6px 16px rgba(37,211,102,.35)}
+.btn-rosa{background:var(--rosa);color:#fff;box-shadow:0 6px 16px rgba(224,48,111,.3)}
+.btn-borda{background:#fff;color:var(--rosa);border:2px solid var(--rosa)}
+
+.hero{padding:56px 0 70px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.1;color:var(--rosa)}
+.hero h1 span{color:var(--teal)}
+.hero .script{font-family:'Pacifico',cursive;color:var(--roxo);font-size:1.4rem;margin:14px 0 8px}
+.hero p.lead{font-size:1.15rem;max-width:480px;margin-bottom:26px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .logo-big{width:min(380px,100%);margin:0 auto;border-radius:50%;box-shadow:0 14px 40px rgba(224,48,111,.22)}
+.dots{display:flex;gap:6px;margin-top:22px}
+.dots i{width:14px;height:14px;border-radius:50%}
+
+section{padding:70px 0}
+.titulo{text-align:center;margin-bottom:40px}
+.titulo h2{font-size:clamp(1.8rem,4vw,2.5rem);color:var(--rosa)}
+.titulo p{color:var(--teal);font-weight:500;font-size:1.1rem}
+.titulo .script{font-family:'Pacifico',cursive;color:var(--roxo);font-size:1.2rem;font-weight:400}
+
+/* serviços */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:20px}
+.card{background:#fff;border-radius:24px;padding:26px 20px;text-align:center;border:2px dashed var(--rosa-claro);box-shadow:0 6px 18px rgba(74,26,44,.06);transition:transform .2s}
+.card:hover{transform:translateY(-5px)}
+.ico{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;font-size:2rem;margin:0 auto 14px}
+.card h3{font-size:1.15rem;margin-bottom:6px;text-transform:uppercase;letter-spacing:.3px}
+.card p{font-size:.95rem;opacity:.85}
+.preco{display:inline-block;margin-top:10px;background:var(--amarelo-claro);color:var(--marrom);padding:4px 14px;border-radius:30px;font-weight:600;font-size:.9rem}
+
+/* preços */
+.precos{background:#fff}
+.tabelas{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.tab{border-radius:26px;padding:28px 24px;border:2px dashed}
+.tab h3{font-size:1.4rem;margin-bottom:14px}
+.tab ul{list-style:none}
+.tab li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(74,26,44,.2)}
+.tab li:last-child{border:0}
+.tab li b{white-space:nowrap}
+.tab small{display:block;margin-top:10px;opacity:.7}
+.t1{background:var(--rosa-claro);border-color:var(--rosa)} .t1 h3{color:var(--rosa)}
+.t2{background:var(--teal-claro);border-color:var(--teal)} .t2 h3{color:var(--teal)}
+.t3{background:var(--roxo-claro);border-color:var(--roxo)} .t3 h3{color:var(--roxo)}
+
+/* galeria */
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;align-items:start}
+.galeria figure{background:#fff;border-radius:24px;padding:12px;box-shadow:0 8px 24px rgba(74,26,44,.1);cursor:zoom-in;transition:transform .2s}
+.galeria figure:hover{transform:scale(1.02)}
+.galeria img{border-radius:16px;width:100%}
+.galeria figcaption{text-align:center;font-weight:500;padding:10px 0 2px;color:var(--rosa)}
+.lightbox{position:fixed;inset:0;background:rgba(74,26,44,.85);display:none;place-items:center;z-index:100;padding:20px;cursor:zoom-out}
+.lightbox.on{display:grid}
+.lightbox img{max-height:92vh;border-radius:16px}
+
+/* sobre */
+.sobre .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.sobre h2{color:var(--rosa);font-size:2.2rem;margin-bottom:14px}
+.sobre p{margin-bottom:12px;font-size:1.05rem}
+.valores{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.valor{padding:20px;border-radius:20px;text-align:center;font-weight:600}
+.valor span{display:block;font-size:1.8rem}
+
+/* doces */
+.doces{background:var(--rosa-claro)}
+.doces .box{background:#fff;border-radius:30px;padding:36px;text-align:center;border:2px dashed var(--rosa);max-width:720px;margin:0 auto}
+.doces h2{font-family:'Pacifico',cursive;font-weight:400;color:var(--rosa);font-size:2.2rem}
+
+/* contato */
+.contato{text-align:center}
+.contato .box{background:var(--rosa-claro);border-radius:34px;padding:44px 24px;max-width:760px;margin:0 auto}
+.contato h2{color:var(--rosa);font-size:2.2rem;margin-bottom:8px}
+.contato .links{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin-top:24px}
+
+footer{background:var(--marrom);color:#fff;text-align:center;padding:26px 20px;font-size:.95rem}
+footer span{color:var(--amarelo)}
+
+.zap-fixo{position:fixed;right:18px;bottom:18px;z-index:60;background:#25D366;color:#fff;border-radius:50px;padding:14px 22px;font-weight:600;display:flex;align-items:center;gap:8px;box-shadow:0 8px 22px rgba(0,0,0,.25)}
+.zap-fixo:hover{transform:translateY(-2px)}
+
+@media(max-width:800px){
+  .hero .wrap,.sobre .wrap{grid-template-columns:1fr}
+  .hero .logo-big{order:-1;width:240px}
+  .hero{text-align:center}.hero p.lead{margin-inline:auto}.hero .cta,.dots{justify-content:center}
+  .menu-btn{display:block}
+  nav{position:absolute;top:68px;left:0;right:0;background:var(--creme);display:none;border-bottom:2px dashed var(--rosa-claro)}
+  nav.on{display:block}
+  nav ul{flex-direction:column;gap:0;padding:10px 20px}
+  nav li a{display:block;padding:12px 0}
+  section{padding:50px 0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a href="#inicio" class="brand"><img src="img/logo.png" alt="Logo Artes Mamãe Mundo Criar"><span>Artes Mamãe<b>Mundo Criar</b></span></a>
+    <button class="menu-btn" aria-label="Abrir menu" onclick="document.getElementById('menu').classList.toggle('on')">☰</button>
+    <nav id="menu">
+      <ul>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#precos">Preços</a></li>
+        <li><a href="#galeria">Catálogo</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section id="inicio" class="hero aqua">
+  <div class="wrap">
+    <div>
+      <h1>Artes Mamãe <span>Mundo Criar</span></h1>
+      <p class="script">Tudo que você precisa com amor e criatividade!</p>
+      <p class="lead">Papelaria, xerox, impressão, bottons personalizados, presentes e muito mais. Feito do jeitinho que você imagina!</p>
+      <div class="cta">
+        <a class="btn btn-zap" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Artes%20Mam%C3%A3e%20Mundo%20Criar%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">💬 Chamar no WhatsApp</a>
+        <a class="btn btn-borda" href="#servicos">Ver serviços</a>
+      </div>
+      <div class="dots"><i style="background:var(--rosa)"></i><i style="background:var(--amarelo)"></i><i style="background:#8FD3F4"></i><i style="background:var(--verde)"></i><i style="background:var(--roxo)"></i></div>
+    </div>
+    <img class="logo-big" src="img/logo.png" alt="Artes Mamãe Mundo Criar - Papelaria e Presentes">
+  </div>
+</section>
+
+<section id="servicos">
+  <div class="wrap">
+    <div class="titulo">
+      <span class="script">Criar, ensinar e amar faz parte do nosso mundo!</span>
+      <h2>Nossos serviços e produtos</h2>
+      <p>Tudo para o seu dia a dia, escola, festa e presentes</p>
+    </div>
+    <div class="grid">
+      <div class="card"><div class="ico" style="background:var(--rosa-claro)">🖨️</div><h3>Xerox</h3><p>Cópias rápidas e com qualidade.</p><span class="preco">P&amp;B a partir de R$ 1,00</span></div>
+      <div class="card"><div class="ico" style="background:var(--amarelo-claro)">📄</div><h3>Impressão</h3><p>Preto e branco ou coloridas.</p><span class="preco">Coloridas a partir de R$ 2,00</span></div>
+      <div class="card"><div class="ico" style="background:var(--roxo-claro)">📓</div><h3>Encadernação</h3><p>Com capricho para trabalhos e cadernos.</p><span class="preco">a partir de R$ 7,00</span></div>
+      <div class="card"><div class="ico" style="background:var(--teal-claro)">🛡️</div><h3>Plastificação</h3><p>Mais proteção para seus documentos.</p><span class="preco">a partir de R$ 6,00</span></div>
+      <div class="card"><div class="ico" style="background:var(--rosa-claro)">✏️</div><h3>Papelaria</h3><p>Material escolar e de escritório.</p></div>
+      <div class="card"><div class="ico" style="background:var(--verde-claro)">📚</div><h3>Arquivos pedagógicos</h3><p>Atividades infantis e diversos temas para Educação Infantil e Ensino Fundamental.</p></div>
+      <div class="card"><div class="ico" style="background:var(--roxo-claro)">📿</div><h3>Plenas Biju</h3><p>Bijuterias selecionadas, seu estilo, sua luz!</p></div>
+      <div class="card"><div class="ico" style="background:var(--amarelo-claro)">🧸</div><h3>Brinquedos</h3><p>Para alegrar a criançada.</p></div>
+      <div class="card"><div class="ico" style="background:var(--teal-claro)">🎁</div><h3>Presentes personalizados</h3><p>Canecas, caixinhas e afeto em cada detalhe.</p></div>
+      <div class="card"><div class="ico" style="background:var(--rosa-claro)">🎉</div><h3>Personalizados para festas</h3><p>Tags, adesivos, caixinhas e lembrancinhas.</p></div>
+      <div class="card"><div class="ico" style="background:var(--verde-claro)">👜</div><h3>Sacola ecobag</h3><p>Prática, resistente, sustentável e ecológica.</p><span class="preco">R$ 39,00</span></div>
+      <div class="card"><div class="ico" style="background:var(--rosa-claro)">🧁</div><h3>Doces de fabricação própria</h3><p>Pedacinho do Amor, há mais de 18 anos no mercado.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="precos" class="precos">
+  <div class="wrap">
+    <div class="titulo"><h2>Preços</h2><p>Valores de referência. Consulte condições para quantidades maiores.</p></div>
+    <div class="tabelas">
+      <div class="tab t1">
+        <h3>📌 Bottons personalizados</h3>
+        <ul>
+          <li><span>P · 3,2 cm</span><b>R$ 5,00</b></li>
+          <li><span>M · 4,4 cm</span><b>R$ 7,00</b></li>
+          <li><span>G · 5,8 cm</span><b>R$ 9,00</b></li>
+        </ul>
+        <small>Do jeitinho que você imagina!</small>
+      </div>
+      <div class="tab t2">
+        <h3>🎀 Kits com 03 bottons</h3>
+        <ul>
+          <li><span>3 bottons P</span><b>R$ 12,00</b></li>
+          <li><span>3 bottons M</span><b>R$ 16,00</b></li>
+          <li><span>3 bottons G</span><b>R$ 20,00</b></li>
+        </ul>
+      </div>
+      <div class="tab t3">
+        <h3>🖨️ Impressão e acabamento</h3>
+        <ul>
+          <li><span>Preto e branco</span><b>a partir de R$ 1,00</b></li>
+          <li><span>Coloridas</span><b>a partir de R$ 2,00</b></li>
+          <li><span>Encadernação</span><b>a partir de R$ 7,00</b></li>
+          <li><span>Plastificação</span><b>a partir de R$ 6,00</b></li>
+          <li><span>Sacola ecobag</span><b>R$ 39,00</b></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="aqua">
+  <div class="wrap">
+    <div class="titulo"><h2>Catálogo</h2><p>Clique para ampliar</p></div>
+    <div class="galeria">
+      <figure><img src="img/catalogo.webp" alt="Catálogo geral de produtos" loading="lazy"><figcaption>Tudo que você precisa</figcaption></figure>
+      <figure><img src="img/bottons.webp" alt="Tabela de bottons personalizados" loading="lazy"><figcaption>Bottons personalizados</figcaption></figure>
+      <figure><img src="img/servicos.webp" alt="Lista de serviços" loading="lazy"><figcaption>Nossos serviços</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="sobre">
+  <div class="wrap">
+    <div>
+      <h2>Feito com amor, pensado para você e sua família</h2>
+      <p>A Artes Mamãe Mundo Criar nasceu do carinho por criar, ensinar e amar. Somos uma papelaria cheia de personalidade, com serviços de xerox e impressão, produtos personalizados e presentes que levam afeto em cada detalhe.</p>
+      <p>Aqui cada pedido é feito do seu jeito: do botton com o desenho favorito da criança à lembrancinha da festa.</p>
+      <a class="btn btn-rosa" href="#contato">Fale com a gente</a>
+    </div>
+    <div class="valores">
+      <div class="valor" style="background:var(--rosa-claro)"><span>💗</span>Atendimento com carinho</div>
+      <div class="valor" style="background:var(--amarelo-claro)"><span>⭐</span>Qualidade que você confia</div>
+      <div class="valor" style="background:var(--teal-claro)"><span>🎨</span>Personalizado do seu jeito</div>
+      <div class="valor" style="background:var(--verde-claro)"><span>🌍</span>Sustentável, com propósito</div>
+    </div>
+  </div>
+</section>
+
+<section class="doces">
+  <div class="wrap">
+    <div class="box">
+      <h2>Pedacinho do Amor</h2>
+      <p style="margin:10px 0 0;font-size:1.1rem">🧁 Doces de fabricação própria<br>Há mais de 18 anos no mercado, feitos com muito carinho.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="contato aqua">
+  <div class="wrap">
+    <div class="box">
+      <h2>Vamos criar juntos?</h2>
+      <p>Peça seu orçamento ou tire dúvidas pelo WhatsApp ou Instagram.</p>
+      <div class="links">
+        <a class="btn btn-zap" href="https://wa.me/5511970529778" target="_blank" rel="noopener">💬 (11) 97052-9778</a>
+        <a class="btn btn-rosa" href="https://www.instagram.com/artesmamaemundocriar/" target="_blank" rel="noopener">📷 @artesmamaemundocriar</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>© <span id="ano"></span> Artes Mamãe Mundo Criar · Papelaria e Presentes</p>
+</footer>
+
+<a class="zap-fixo" href="https://wa.me/5511970529778?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20um%20or%C3%A7amento." target="_blank" rel="noopener">💬 WhatsApp</a>
+
+<div class="lightbox" id="lb"><img alt=""></div>
+
+<script>
+document.getElementById('ano').textContent=new Date().getFullYear();
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>document.getElementById('menu').classList.remove('on')));
+const lb=document.getElementById('lb'),lbi=lb.querySelector('img');
+document.querySelectorAll('.galeria img').forEach(i=>i.addEventListener('click',()=>{lbi.src=i.src;lb.classList.add('on')}));
+lb.addEventListener('click',()=>lb.classList.remove('on'));
+</script>
+</body>
+</html>
